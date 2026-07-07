@@ -212,31 +212,31 @@
     /* reveal on scroll */
     .reveal {
       opacity: 0;
-      transform: translateY(26px);
+      transform: translateY(40px);
       transition:
-        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity 0.8s cubic-bezier(.22, 1, .36, 1),
+        transform 0.8s cubic-bezier(.22, 1, .36, 1);
     }
 
     .reveal.in {
       opacity: 1;
-      transform: none;
+      transform: translateY(0);
     }
 
     .d1 {
-      transition-delay: 0.08s;
+      transition-delay: .10s;
     }
 
     .d2 {
-      transition-delay: 0.16s;
+      transition-delay: .20s;
     }
 
     .d3 {
-      transition-delay: 0.24s;
+      transition-delay: .30s;
     }
 
     .d4 {
-      transition-delay: 0.32s;
+      transition-delay: .40s;
     }
 
     /* nav underline animation */
@@ -319,6 +319,8 @@
       display: none !important;
     }
   </style>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <!-- Certificate Modal -->
 <div id="certificateModal"
@@ -377,6 +379,77 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
+/* ===========================
+   Floating Social Dock
+=========================== */
+.social-dock {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 14px 24px;
+
+    background: rgba(24, 24, 27, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 999px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+
+    z-index: 99999;
+}
+
+.social-dock a{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#d4d4d8;
+    text-decoration:none;
+
+    border-radius:50%;
+
+    transition:.3s ease;
+}
+
+.social-dock a:hover{
+    color:#14b8a6;
+    background:rgba(20,184,166,.12);
+    transform:translateY(-4px) scale(1.08);
+}
+
+.social-dock i{
+    font-size:22px;
+}
+.floatingBar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 12px 20px;
+    border-radius: 999px;
+
+    background: rgba(24, 24, 27, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+
+    z-index: 9999;
+}
+
   /* ===========================
    SKILLS SECTION
 =========================== */
@@ -810,13 +883,13 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">
-            Available for work/projects
+              Available for work/projects
             </p>
             <h1
               class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
               Hi, I'm <span class="text-accent">Yash Mittal</span>
             </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-zinc-300">
+            <h2 class="reveal text-2xl md:text-3xl font-semibold text-zinc-300">
               I am a <span id="typing"></span>.
             </h2>
             <p
@@ -831,12 +904,12 @@
               <a href="#project"
                 class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
                 View projects
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <svg reveal class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </a>
               <a href="#contact"
-                class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get
+                class=" reveal inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get
                 in touch</a>
             </div>
             <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
@@ -844,7 +917,7 @@
                 <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">
                   5+
                 </p>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                <p class=" text-xs text-zinc-500 dark:text-zinc-400 mt-1">
                   Projects Completed
                 </p>
               </div>
@@ -857,7 +930,7 @@
                 </p>
               </div>
               <div>
-                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">
+                <p class=" font-display font-bold text-3xl text-zinc-900 dark:text-white">
                   9.00
                 </p>
                 <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
@@ -867,14 +940,14 @@
             </div>
           </div>
 
-          <div class="reveal d2 flex justify-center md:justify-end">
+          <div class="flex justify-center md:justify-end">
             <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div class="pf w-full h-full rounded-3xl">
                 <img style=":hover{box-shadow: 0 0 20px rgba(13,148,136,0.5);}" src="selftpic1.png"
                   alt="Yash Mittal - Software Development Engineer" loading="eager" />
               </div>
               <div
-                class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">
+                class="reveal absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">
                 Open to work/projects
               </div>
             </div>
@@ -887,7 +960,7 @@
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div class="reveal order-2 md:order-1">
-            <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
+            <div class="reveal pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
               <img src="selfpic2.jpeg" alt="Yash Mittal" loading="lazy" />
             </div>
 
@@ -905,7 +978,7 @@
                   <div class="grid grid-cols-3 gap-3">
                     <!-- LinkedIn -->
                     <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank"
-                      class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                      class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                         <path
                           d="M20.447 20.452H16.89V14.87c0-1.331-.027-3.043-1.855-3.043-1.856 0-2.14 1.45-2.14 2.947v5.678H9.338V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.369-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 110-4.126 2.063 2.063 0 010 4.126zM7.119 20.452H3.555V9h3.564v11.452z" />
@@ -916,7 +989,7 @@
 
                     <!-- GitHub -->
                     <a href="https://github.com/yashmittal02" target="_blank"
-                      class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                      class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                         <path
                           d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.16c-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.27 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.18a10.9 10.9 0 015.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.18c0 .3.2.65.79.54A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z" />
@@ -926,8 +999,8 @@
                     </a>
 
                     <!-- HackerRank -->
-                    <a href="https://www.hackerrank.com/profile/yashlink25" target="_blank"
-                      class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                    <a href="https://www.hackerrank.com/profile/yashmittal02" target="_blank"
+                      class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                         <path
                           d="M12 0L1.6 6v12L12 24l10.4-6V6L12 0zm5.84 16.93h-2.46v-3.26H8.62v3.26H6.16V7.07h2.46v4.27h6.76V7.07h2.46v9.86z" />
@@ -941,7 +1014,7 @@
             </div>
           </div>
 
-          <div class="order-1 md:order-2">
+          <div class="reveal order-1 md:order-2">
             <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
               About me
             </p>
@@ -971,7 +1044,7 @@
               <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">
                 Stack &amp; tools
               </p>
-              <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
+              <div class="reveal d4 flex flex-wrap gap-2" role="list" aria-label="Skills">
                 <span role="listitem"
                   class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Java</span>
                 <span role="listitem"
@@ -994,22 +1067,22 @@
 
     <!-- ═══ Skills ═══ -->
     <section id="Skills" class="skills-section">
-      <div class="skills-heading">
-        <p class="skills-subtitle">I WORK ON THESE</p>
+      <div class="skills-heading reveal ">
+        <p class="skills-subtitle reveal ">I WORK ON THESE</p>
 
         <h2 class="skills-title">Technical Skills</h2>
       </div>
       <button id="prevBtn" class="nav-arrow left-arrow">❮</button>
 
-      <div class="card-container">
-        <div class="skill-card prev"></div>
+      <div class="card-container reveal d1">
+        <div class="skill-card prev reveal d4"></div>
 
-        <div class="skill-card active"></div>
+        <div class="skill-card active reveal d1"></div>
 
-        <div class="skill-card next"></div>
+        <div class="skill-card next reveal d4"></div>
       </div>
 
-      <button id="nextBtn" class="nav-arrow right-arrow">❯</button>
+      <button id="nextBtn" class="nav-arrow right-arrow reveal d2">❯</button>
     </section>
     <script>
       const skills = [
@@ -1185,14 +1258,15 @@
             </h2>
           </div>
           <a href="projects.html"
-            class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">View all
+            class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">View
+            all
             projects →</a>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Featured Project -->
           <article
-            class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent md:row-span-2">
+            class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent md:row-span-2">
             <div class="pf w-full h-64 md:h-80 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4">
               <img src="mykart.png" alt="myKart Hyperlocal Platform" loading="lazy"
                 class="w-full h-full object-contain" />
@@ -1249,15 +1323,15 @@
                 case.<br /><br />
               </p>
 
-              <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+              <!-- <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
                 View Project →
-              </a>
+              </a> -->
             </div>
           </article>
 
           <!-- Project 2 -->
           <article
-            class="inline-block reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="inline-block reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent">
             <div class="pf bg-zinc-100 dark:bg-zinc-800 p-4 flex justify-center">
               <img src="els.png" alt="ELS Website" loading="lazy" class="h-auto w-auto max-w-none" />
             </div>
@@ -1297,7 +1371,7 @@
 
           <!-- Project 3 -->
           <article
-            class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent">
             <div class="pf w-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4">
               <img src="ss.png" alt="StudySnakes Learning Platform" loading="lazy"
                 class="max-w-full h-auto object-contain" />
@@ -1329,9 +1403,9 @@
                 user engagement.
               </p>
 
-              <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+              <!-- <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
                 View Project →
-              </a>
+              </a> -->
             </div>
           </article>
         </div>
@@ -1354,7 +1428,7 @@
         <div class="grid md:grid-cols-3 gap-6">
           <!-- B.Tech -->
           <div
-            class="reveal d1 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
+            class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
             <span class="text-accent text-sm font-medium">2023 - Present</span>
 
             <h3 class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white">
@@ -1374,14 +1448,14 @@
 
           <!-- Class 12 -->
           <div
-            class="reveal d2 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
+            class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
             <span class="text-accent text-sm font-medium">2022 - 2023</span>
 
-            <h3 class="text-xl font-semibold mt-3 text-white">
+            <h3 class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white">
               Senior Secondary (XII)
             </h3>
 
-            <p class="text-zinc-400 mt-3">Science Stream (PCM)</p>
+            <p class="text-zinc-600 dark:text-zinc-400 mt-3">Science Stream (PCM)</p>
 
             <p class="text-zinc-500 text-sm mt-4">CBSE Board</p>
 
@@ -1390,7 +1464,7 @@
 
           <!-- Class 10 -->
           <div
-            class="reveal d3 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
+            class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
             <span class="text-accent text-sm font-medium">2020 - 2021</span>
 
             <h3 class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white">
@@ -1425,7 +1499,7 @@
 
         <div class="space-y-8">
           <article
-            class="reveal d3 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d3 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8">
               <img src="l1.png" alt="DFM Foods Ltd."
                 class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105" />
@@ -1452,7 +1526,7 @@
 
           <!-- Experience 2 -->
           <article
-            class="reveal d1 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d1 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8">
               <img src="l2.png" alt="CreativePath Techno Solutions"
                 class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105" />
@@ -1478,7 +1552,7 @@
 
           <!-- Experience 3 -->
           <article
-            class="reveal d2 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d2 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8">
               <img src="l3.png" alt="IndiGo Airlines"
                 class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105" />
@@ -1524,7 +1598,7 @@
         <div class="space-y-8">
           <!-- Certificate 1 -->
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 hover:border-teal-500 hover:-translate-y-1 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
             <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
               🏆
             </div>
@@ -1547,7 +1621,7 @@
 
           <!-- Certificate 2 -->
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 hover:border-teal-500 hover:-translate-y-1 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
             <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
               🤖
             </div>
@@ -1569,6 +1643,60 @@
               View
             </button>
           </div>
+
+          <!-- Certificate 3 -->
+
+          <div
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
+            <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
+              JS
+            </div>
+
+            <div class="flex-1 text-center md:text-left">
+              <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
+                JavaScript (Basic)
+              </h3>
+
+              <p class="text-zinc-400 mt-2">
+                HackerRank
+              </p>
+
+              <p class="text-zinc-500 text-sm mt-1">2026</p>
+            </div>
+
+            <button onclick="openCertificate('c6.png')"
+              class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
+              View
+            </button>
+          </div>
+
+          <!-- Certificate 4-->
+
+          <div
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
+            <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
+              🐬
+            </div>
+
+            <div class="flex-1 text-center md:text-left">
+              <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
+                MySQL (Intermediate)
+              </h3>
+
+              <p class="text-zinc-400 mt-2">
+                HackerRank
+              </p>
+
+              <p class="text-zinc-500 text-sm mt-1">2026</p>
+            </div>
+
+            <button onclick="openCertificate('c8.png')"
+              class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
+              View
+            </button>
+          </div>
+
+
         </div>
       </div>
     </section>
@@ -1592,7 +1720,7 @@
         <div class="grid md:grid-cols-3 gap-6">
           <!-- Card 1 -->
           <article
-            class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
               <img src="c1.png" alt="Director and President"
                 class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
@@ -1624,7 +1752,7 @@
 
           <!-- Card 2 -->
           <article
-            class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
               <img src="c2.jpeg" alt="Core Team Lead"
                 class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
@@ -1655,7 +1783,7 @@
 
           <!-- Card 3 -->
           <article
-            class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
               <img src="c3.png" alt="EmCee"
                 class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
@@ -1685,7 +1813,7 @@
           <!-- Card 4 (Founder - Baithak)
   
           <article
-            class="reveal d4 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d4 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
               <img src="c3.png" alt="EmCee"
                 class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
@@ -1735,7 +1863,7 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Skill Card -->
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
             <div class="text-5xl mb-5">🎤</div>
 
             <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
@@ -1749,7 +1877,7 @@
           </div>
 
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
             <div class="text-5xl mb-5">🤝</div>
 
             <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
@@ -1763,7 +1891,7 @@
           </div>
 
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
             <div class="text-5xl mb-5">💡</div>
 
             <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
@@ -1777,7 +1905,7 @@
           </div>
 
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
             <div class="text-5xl mb-5">🗣️</div>
 
             <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
@@ -1791,7 +1919,7 @@
           </div>
 
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
             <div class="text-5xl mb-5">⚡</div>
 
             <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
@@ -1805,7 +1933,7 @@
           </div>
 
           <div
-            class="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
+            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
             <div class="text-5xl mb-5">🎯</div>
 
             <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
@@ -1866,23 +1994,24 @@
             Let's Connect
           </p>
 
-          <h2 class="text-5xl font-bold mt-4">
-            Let's Build Something Meaningful Together
+          <h2 class="text-5xl font-bold mt-4 reveal">
+            Let's Work Together
           </h2>
 
-          <p class="text-zinc-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
-            Looking for a Software Engineer, Backend Developer, or Full Stack Developer? I'm passionate about solving
-            real-world
-            problems through technology, data, and innovative software
-            solutions. I'm currently open to internships, full-time
-            opportunities, and freelance projects.
+          <p class="text-zinc-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed reveal">
+            Looking for a Software Engineer, Backend Developer, or Full Stack Developer? I enjoy building scalable
+            applications and solving real-world problems through clean, efficient, and impactful software. I'm currently
+            open to internships, full-time opportunities, and freelance projects.
           </p>
         </div>
 
         <!-- Main Grid -->
-        <div class="grid lg:grid-cols-2 gap-10">
+        <div class="grid lg:grid-cols-2 gap-10 reveal">
           <!-- Left Side -->
-          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1
+hover:shadow-[0_0_40px_rgba(13,148,136,0.2)]
+transition-all
+duration-300 reveal">
             <h3 class="text-3xl font-bold mb-8">Available For</h3>
 
             <div class="space-y-4">
@@ -1907,15 +2036,11 @@
               </div>
               <div class="flex items-center gap-4">
                 <span class="text-teal-500 text-xl">✓</span>
-                <span>Frontend Development</span>
+                <span>Front-End Development</span>
               </div>
               <div class="flex items-center gap-4">
                 <span class="text-teal-500 text-xl">✓</span>
-                <span>FullStack Development</span>
-              </div>
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Internship opportunities</span>
+                <span>Full Stack Development</span>
               </div>
             </div>
 
@@ -1928,7 +2053,10 @@
           </div>
 
           <!-- Right Side -->
-          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1
+hover:shadow-[0_0_40px_rgba(13,148,136,0.2)]
+transition-all
+duration-300 reveal">
             <h3 class="text-3xl font-bold mb-8">Contact Information</h3>
 
             <div class="space-y-8">
@@ -1961,46 +2089,49 @@
                 </p>
 
                 <p class="text-lg">
-                  India (Open to remote opportunities worldwide)
+                  India • Open to Remote & Relocation Opportunities
                 </p>
               </div>
             </div>
 
             <!-- Buttons -->
-            <div class="flex flex-wrap gap-4 mt-10">
+            <div class="flex flex-wrap gap-5 mt-10">
               <a href="mailto:yashlink25@gmail.com"
                 class="px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-                Hire Me
+                Contact Me
               </a>
 
-              <a href="YashMittalResumeN.pdf" target="_blank"
+              <!-- <a href="YashMittalResumeN.pdf" target="_blank"
                 class="px-6 py-3 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-black transition">
                 Resume
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
 
         <!-- Social Links -->
-        <div class="mt-16 text-center"> 
+        <div class="mt-16 text-center">
           <h3 class="text-2xl font-bold mb-8">Connect With Me</h3>
 
           <div class="flex flex-wrap justify-center gap-6">
-            <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank"
-              class="px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 transition">
-              LinkedIn
-            </a>
+  <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank"
+    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300">
+    <i class="fa-brands fa-linkedin text-teal-500 text-xl"></i>
+    <span>LinkedIn</span>
+  </a>
 
-            <a href="https://github.com/yashmittal02" target="_blank"
-              class="px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 transition">
-              GitHub
-            </a>
+  <a href="https://github.com/yashmittal02" target="_blank"
+    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300">
+    <i class="fa-brands fa-github text-teal-500 text-xl"></i>
+    <span>GitHub</span>
+  </a>
 
-            <a href="https://www.hackerrank.com/profile/yashlink25" target="_blank"
-              class="px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 transition">
-              Hacker Rank
-            </a>
-          </div>
+  <a href="https://www.hackerrank.com/profile/yashmittal02" target="_blank"
+    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300">
+    <i class="fa-brands fa-hackerrank text-teal-500 text-xl"></i>
+    <span>HackerRank</span>
+  </a>
+</div>
         </div>
       </div>
     </section>
@@ -2103,6 +2234,25 @@
 
     </div>
   </footer>
+
+<!-- Floating Social Dock -->
+<!-- <div class="social-dock floatingBar">
+  <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <a href="https://github.com/yashmittal02" target="_blank">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+  <a href="https://www.hackerrank.com/profile/yashmittal02" target="_blank">
+    <i class="fa-brands fa-hackerrank"></i>
+  </a>
+
+  <a href="YashMittalResumeN.pdf" target="_blank">
+    <i class="fa-solid fa-file-lines"></i>
+  </a>
+</div> -->
   <script>
     const words = [
       "Software Engineer",
