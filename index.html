@@ -1,1257 +1,1422 @@
 <!doctype html>
 <html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Yash Mittal - Software Development Engineer and Frontend Developer. Fast, clean and accessible digital products."
+    />
+    <meta
+      name="keywords"
+      content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js, CSS, Portfolio website, responsive design, frontend development, web development, user experience, user interface, personal website, software engineer, web designer"
+    />
+    <meta name="author" content="Yash Mittal" />
+    <meta
+      property="og:title"
+      content="Yash Mittal - Software Development Engineer"
+    />
+    <meta
+      property="og:description"
+      content="I design and build digital products that people love to use."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://Yash Mittal.dev" />
+    <title>
+      Yash Mittal - Software Development Engineer &amp; Software Engineer
+    </title>
 
-<head>
-  <link rel="stylesheet" href="style.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Yash Mittal - Software Development Engineer and Frontend Developer. Fast, clean and accessible digital products." />
-  <meta name="keywords"
-    content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js, CSS, Portfolio website, responsive design, frontend development, web development, user experience, user interface, personal website, software engineer, web designer" />
-  <meta name="author" content="Yash Mittal" />
-  <meta property="og:title" content="Yash Mittal - Software Development Engineer" />
-  <meta property="og:description" content="I design and build digital products that people love to use." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://Yash Mittal.dev" />
-  <title>
-    Yash Mittal - Software Development Engineer &amp; Software Engineer
-  </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["PT Sans", "sans-serif"],
+              body: ["DM Sans", "sans-serif"],
+            },
+            colors: { accent: "#0d9488", "accent-light": "#2dd4bf" },
+          },
+        },
+      };
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <!-- Certificate Modal -->
+  <div
+    id="certificateModal"
+    class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-[9999] p-4"
+  >
+    <div class="relative animate-[fadeIn_.3s_ease]">
+      <!-- Close Button -->
+      <button
+        onclick="closeCertificate()"
+        class="absolute -top-12 right-0 text-white text-4xl hover:text-teal-500 transition"
+      >
+        &times;
+      </button>
+
+      <!-- Certificate Image -->
+      <img
+        id="certificateImage"
+        src=""
+        alt="Certificate"
+        class="max-w-full md:max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl border border-zinc-700"
+      />
+    </div>
+  </div>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <script>
-    function app() {
-      return {
-        dark: false,
-        mm: false,
-        sc: false,
-        s: "hero",
-
-        init() {
-          // dark mode
-          this.dark =
-            localStorage.getItem("theme") === "dark" ||
-            (!localStorage.getItem("theme") &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches);
-          this.$watch("dark", (v) =>
-            localStorage.setItem("theme", v ? "dark" : "light"),
-          );
-
-          // scroll
-          window.addEventListener(
-            "scroll",
-            () => {
-              this.sc = window.scrollY > 20;
-              this.updateSection();
-            },
-            { passive: true },
-          );
-
-          // reveal
-          const io = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((e) => {
-                if (e.isIntersecting) {
-                  e.target.classList.add("in");
-                  io.unobserve(e.target);
-                }
-              });
-            },
-            { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
-          );
-          document
-            .querySelectorAll(".reveal")
-            .forEach((el) => io.observe(el));
-
-          // year
-          const yr = document.getElementById("yr");
-          if (yr) yr.textContent = new Date().getFullYear();
-          this.updateSection();
-        },
-
-
-        updateSection() {
-
-          const sections = document.querySelectorAll("section[id]");
-
-          let currentSection = "hero";
-
-          const scrollPos =
-            window.scrollY + window.innerHeight / 3;
-
-          sections.forEach((section) => {
-
-            if (scrollPos >= section.offsetTop) {
-              currentSection = section.id;
-            }
-
-          });
-
-          this.s = currentSection;
-        }
-      };
-    }
-  </script>
-
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-    rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ["PT Sans", "sans-serif"],
-            body: ["DM Sans", "sans-serif"],
-          },
-          colors: { accent: "#0d9488", "accent-light": "#2dd4bf" },
-        },
-      },
-    };
-  </script>
-
-  
-  <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<!-- Certificate Modal -->
-<div id="certificateModal"
-  class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-[9999] p-4">
-  <div class="relative animate-[fadeIn_.3s_ease]">
-    <!-- Close Button -->
-    <button onclick="closeCertificate()"
-      class="absolute -top-12 right-0 text-white text-4xl hover:text-teal-500 transition">
-      &times;
-    </button>
-
-    <!-- Certificate Image -->
-    <img id="certificateImage" src="" alt="Certificate"
-      class="max-w-full md:max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl border border-zinc-700" />
-  </div>
-</div>
-
-<script>
-  function openCertificate(image) {
-    const modal = document.getElementById("certificateModal");
-    const img = document.getElementById("certificateImage");
-
-    img.src = image;
-
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeCertificate() {
-    const modal = document.getElementById("certificateModal");
-
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-
-    document.body.style.overflow = "auto";
-  }
-
-  // Close on outside click
-  document
-    .getElementById("certificateModal")
-    .addEventListener("click", function (e) {
-      if (e.target === this) {
-        closeCertificate();
-      }
-    });
-
-  // Close on ESC key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeCertificate();
-    }
-  });
-</script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-
-
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-  <!-- ═══ NAV ═══ -->
-  <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-    :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
-    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
-      <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
-        <span class="text-zinc-900 dark:text-white">Yash</span><span class="text-accent">Mittal</span>
-      </a>
-
-      <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-        <li>
-          <a href="#about"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a>
-        </li>
-        <li>
-          <a href="#Skills"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='Skills'?'on !text-zinc-900 dark:!text-white':''">Skills</a>
-        </li>
-        <li>
-          <a href="#project"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='project'?'on !text-zinc-900 dark:!text-white':''">Projects</a>
-        </li>
-        <li>
-          <a href="#education"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='education'?'on !text-zinc-900 dark:!text-white':''">Education</a>
-        </li>
-        <li>
-          <a href="#Experience"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='Experience'?'on !text-zinc-900 dark:!text-white':''">Experience</a>
-        </li>
-        <li>
-          <a href="#certifications"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='certifications'?'on !text-zinc-900 dark:!text-white':''">Certifications</a>
-        </li>
-        <li>
-          <a href="#extra"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='extra'?'on !text-zinc-900 dark:!text-white':''">Extra-Curricular</a>
-        </li>
-        <li>
-          <a href="#softskills"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='softskills'?'on !text-zinc-900 dark:!text-white':''">Soft Skills</a>
-        </li>
-        <li>
-          <a href="#contact"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a>
-        </li>
-      </ul>
-
-      <div class="flex items-center gap-3">
-        <!-- hire me -->
-        <a href="#contact"
-          class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
-          Hire me
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+  <body
+    class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased"
+  >
+    <!-- ═══ NAV ═══ -->
+    <header
+      class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+      :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''"
+    >
+      <nav
+        class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+        aria-label="Main navigation"
+      >
+        <a
+          href="#hero"
+          class="font-display font-bold text-xl tracking-tight relative z-10"
+        >
+          <span class="text-zinc-900 dark:text-white">Yash</span
+          ><span class="text-accent">Mittal</span>
         </a>
-        <!-- hamburger -->
-        <button @click="mm=!mm"
-          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
-          :aria-expanded="mm" aria-label="Toggle menu">
-          <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg x-show="mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </nav>
 
-    <!-- mobile menu -->
-    <div x-show="mm" x-cloak x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-      x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
-      x-transition:leave-end="opacity-0 -translate-y-2"
-      class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
-      <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-        <li>
-          <a href="#about" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a>
-        </li>
-        <li>
-          <a href="#Skills" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Skills</a>
-        </li>
-        <li>
-          <a href="#project" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">project</a>
-        </li>
+        <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+          <li>
+            <a
+              href="#about"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='about'?'on !text-zinc-900 dark:!text-white':''"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Skills"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='Skills'?'on !text-zinc-900 dark:!text-white':''"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#project"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='project'?'on !text-zinc-900 dark:!text-white':''"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#education"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='education'?'on !text-zinc-900 dark:!text-white':''"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Experience"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='Experience'?'on !text-zinc-900 dark:!text-white':''"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#certifications"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='certifications'?'on !text-zinc-900 dark:!text-white':''"
+              >Certifications</a
+            >
+          </li>
+          <li>
+            <a
+              href="#extra"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='extra'?'on !text-zinc-900 dark:!text-white':''"
+              >Extra-Curricular</a
+            >
+          </li>
+          <li>
+            <a
+              href="#softskills"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='softskills'?'on !text-zinc-900 dark:!text-white':''"
+              >Soft Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''"
+              >Contact</a
+            >
+          </li>
+        </ul>
 
-        <li>
-          <a href="#education" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Education</a>
-        </li>
-        <li>
-          <a href="#Experience" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Experience</a>
-        </li>
-        <li>
-          <a href="#certifications" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Certifications</a>
-        </li>
-        <li>
-          <a href="#extra" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Extra-Curricular</a>
-        </li>
-        <li>
-          <a href="#softskills" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Soft Skills</a>
-        </li>
-        <li>
-          <a href="#contact" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a>
-        </li>
-        <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
-          <a href="#contact" @click="mm=false"
-            class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
-        </li>
-      </ul>
-    </div>
-  </header>
+        <div class="flex items-center gap-3">
+          <!-- hire me -->
+          <a
+            href="#contact"
+            class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors"
+          >
+            Hire me
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+          <!-- hamburger -->
+          <button
+            @click="mm=!mm"
+            class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
+            :aria-expanded="mm"
+            aria-label="Toggle menu"
+          >
+            <svg
+              x-show="!mm"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              x-show="mm"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
 
-  <main>
-    <!-- ═══ HERO ═══ -->
-    <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"></div>
+      <!-- mobile menu -->
       <div
-        class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"></div>
+        x-show="mm"
+        x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-2"
+        class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900"
+      >
+        <ul
+          class="flex flex-col px-6 py-5 gap-4 text-sm font-medium"
+          role="list"
+        >
+          <li>
+            <a
+              href="#about"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Skills"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#project"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >project</a
+            >
+          </li>
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">
-              Available for work/projects
-            </p>
-            <h1
-              class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
-              Hi, I'm <span class="text-accent">Yash Mittal</span>
-            </h1>
-            <h2 class="reveal text-2xl md:text-3xl font-semibold text-zinc-300">
-              I am a <span id="typing"></span>.
-            </h2>
-            <p
-              class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
+          <li>
+            <a
+              href="#education"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
+              href="#Experience"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#certifications"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Certifications</a
+            >
+          </li>
+          <li>
+            <a
+              href="#extra"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Extra-Curricular</a
+            >
+          </li>
+          <li>
+            <a
+              href="#softskills"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Soft Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              @click="mm=false"
+              class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors"
+              >Contact</a
+            >
+          </li>
+          <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+            <a
+              href="#contact"
+              @click="mm=false"
+              class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full"
+              >Hire me →</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
 
-              <br>I transform raw data into actionable insights and build
-              scalable backend systems that power modern applications.
-              Passionate about data-driven decision-making, automation, and
-              creating efficient software solutions.
-            </p>
-            <div class="reveal d3 flex flex-wrap gap-4">
-              <a href="#project"
-                class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
-                View projects
-                <svg reveal class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </a>
-              <a href="#contact"
-                class=" reveal inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get
-                in touch</a>
-            </div>
-            <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
-              <div>
-                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">
-                  5+
-                </p>
-                <p class=" text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                  Projects Completed
-                </p>
-              </div>
-              <div>
-                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">
-                  3+
-                </p>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                  Internships
-                </p>
-              </div>
-              <div>
-                <p class=" font-display font-bold text-3xl text-zinc-900 dark:text-white">
-                  9.00
-                </p>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                  CGPA
-                </p>
-              </div>
-            </div>
-          </div>
+    <main>
+      <!-- ═══ HERO ═══ -->
+      <section
+        id="hero"
+        class="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      >
+        <div
+          class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        ></div>
 
-          <div class="flex justify-center md:justify-end">
-            <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <div class="pf w-full h-full rounded-3xl">
-                <img style=":hover{box-shadow: 0 0 20px rgba(13,148,136,0.5);}" src="selftpic1.png"
-                  alt="Yash Mittal - Software Development Engineer" loading="eager" />
+        <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p
+                class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4"
+              >
+                Available for work/projects
+              </p>
+              <h1
+                class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6"
+              >
+                Hi, I'm <span class="text-accent">Yash Mittal</span>
+              </h1>
+              <h2
+                class="reveal text-2xl md:text-3xl font-semibold text-zinc-300"
+              >
+                I am a <span id="typing"></span>.
+              </h2>
+              <p
+                class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10"
+              >
+                <br />I transform raw data into actionable insights and build
+                scalable backend systems that power modern applications.
+                Passionate about data-driven decision-making, automation, and
+                creating efficient software solutions.
+              </p>
+              <div class="reveal d3 flex flex-wrap gap-4">
+                <a
+                  href="#project"
+                  class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm"
+                >
+                  View projects
+                  <svg
+                    reveal
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#contact"
+                  class="reveal inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm"
+                  >Get in touch</a
+                >
               </div>
               <div
-                class="reveal absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">
-                Open to work/projects
+                class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900"
+              >
+                <div>
+                  <p
+                    class="font-display font-bold text-3xl text-zinc-900 dark:text-white"
+                  >
+                    5+
+                  </p>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    Projects Completed
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="font-display font-bold text-3xl text-zinc-900 dark:text-white"
+                  >
+                    3+
+                  </p>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    Internships
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="font-display font-bold text-3xl text-zinc-900 dark:text-white"
+                  >
+                    9.00
+                  </p>
+                  <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    CGPA
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ═══ ABOUT ═══ -->
-    <section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-          <div class="reveal order-2 md:order-1">
-            <div class="reveal pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
-              <img src="selfpic2.jpeg" alt="Yash Mittal" loading="lazy" />
-            </div>
 
-            <!-- Socials -->
-            <div
-              class="max-w-sm mx-auto mt-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-5">
-              <div class="flex justify-center gap-4">
+            <div class="flex justify-center md:justify-end">
+              <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <div class="pf w-full h-full rounded-3xl">
+                  <img
+                    style="
+                      :hover {
+                        box-shadow: 0 0 20px rgba(13, 148, 136, 0.5);
+                      }
+                    "
+                    src="selftpic1.png"
+                    alt="Yash Mittal - Software Development Engineer"
+                    loading="eager"
+                  />
+                </div>
                 <div
-                  class="max-w-sm mx-auto mt-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-5 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)] hover:border-teal-500/60">
-                  <h3
-                    class="text-sm font-semibold text-zinc-900 dark:text-white mb-5 text-center uppercase tracking-wider">
-                    My Socials
-                  </h3>
-
-                  <div class="grid grid-cols-3 gap-3">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank"
-                      class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                          d="M20.447 20.452H16.89V14.87c0-1.331-.027-3.043-1.855-3.043-1.856 0-2.14 1.45-2.14 2.947v5.678H9.338V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.369-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 110-4.126 2.063 2.063 0 010 4.126zM7.119 20.452H3.555V9h3.564v11.452z" />
-                      </svg>
-
-                      <span class="text-xs font-medium">LinkedIn</span>
-                    </a>
-
-                    <!-- GitHub -->
-                    <a href="https://github.com/yashmittal02" target="_blank"
-                      class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                          d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.16c-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.27 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.18a10.9 10.9 0 015.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.18c0 .3.2.65.79.54A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z" />
-                      </svg>
-
-                      <span class="text-xs font-medium">GitHub</span>
-                    </a>
-
-                    <!-- HackerRank -->
-                    <a href="https://www.hackerrank.com/profile/yashmittal02" target="_blank"
-                      class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                          d="M12 0L1.6 6v12L12 24l10.4-6V6L12 0zm5.84 16.93h-2.46v-3.26H8.62v3.26H6.16V7.07h2.46v4.27h6.76V7.07h2.46v9.86z" />
-                      </svg>
-
-                      <span class="text-xs font-medium">HackerRank</span>
-                    </a>
-                  </div>
+                  class="reveal absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg"
+                >
+                  Open to work/projects
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <!-- ═══ ABOUT ═══ -->
+      <section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal order-2 md:order-1">
+              <div
+                class="reveal pf w-full aspect-square max-w-sm mx-auto rounded-3xl"
+              >
+                <img src="selfpic2.jpeg" alt="Yash Mittal" loading="lazy" />
+              </div>
 
-          <div class="reveal order-1 md:order-2">
-            <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
-              About me
+              <!-- Socials -->
+              <div
+                class="max-w-sm mx-auto mt-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-5"
+              >
+                <div class="flex justify-center gap-4">
+                  <div
+                    class="max-w-sm mx-auto mt-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-5 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)] hover:border-teal-500/60"
+                  >
+                    <h3
+                      class="text-sm font-semibold text-zinc-900 dark:text-white mb-5 text-center uppercase tracking-wider"
+                    >
+                      My Socials
+                    </h3>
+
+                    <div class="grid grid-cols-3 gap-3">
+                      <!-- LinkedIn -->
+                      <a
+                        href="https://www.linkedin.com/in/yash-mittal-550462279/"
+                        target="_blank"
+                        class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-7 h-7"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452H16.89V14.87c0-1.331-.027-3.043-1.855-3.043-1.856 0-2.14 1.45-2.14 2.947v5.678H9.338V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.369-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 110-4.126 2.063 2.063 0 010 4.126zM7.119 20.452H3.555V9h3.564v11.452z"
+                          />
+                        </svg>
+
+                        <span class="text-xs font-medium">LinkedIn</span>
+                      </a>
+
+                      <!-- GitHub -->
+                      <a
+                        href="https://github.com/yashmittal02"
+                        target="_blank"
+                        class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-7 h-7"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.16c-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.27 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.18a10.9 10.9 0 015.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.18c0 .3.2.65.79.54A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"
+                          />
+                        </svg>
+
+                        <span class="text-xs font-medium">GitHub</span>
+                      </a>
+
+                      <!-- HackerRank -->
+                      <a
+                        href="https://www.hackerrank.com/profile/yashmittal02"
+                        target="_blank"
+                        class="reveal flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-zinc-100 dark:bg-zinc-700 hover:bg-teal-500 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-7 h-7"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 0L1.6 6v12L12 24l10.4-6V6L12 0zm5.84 16.93h-2.46v-3.26H8.62v3.26H6.16V7.07h2.46v4.27h6.76V7.07h2.46v9.86z"
+                          />
+                        </svg>
+
+                        <span class="text-xs font-medium">HackerRank</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal order-1 md:order-2">
+              <p
+                class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+              >
+                About me
+              </p>
+              <h2
+                class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6"
+              >
+                A bit about<br />who I am
+              </h2>
+              <p
+                class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4"
+              >
+                I am a B.Tech Computer Science student with a strong interest in
+                software development, backend technologies, and problem-solving.
+                My technical skills include Java, Python, MySQL, C/C++, and MS
+                Office. I have gained practical experience through internships
+                and real-world projects, including website development and
+                technical research. Alongside academics, I actively served as
+                the Director and President in the dramatic society Ek Awaaz
+                (2025-26), which has strengthened my leadership, communication,
+                and teamwork skills. I am passionate about learning new
+                technologies and continuously improving my technical and
+                professional abilities.
+              </p>
+              <p
+                class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8"
+              >
+                I believe great interfaces are invisible - they get out of the
+                user's way. I strive to build fast, accessible and user-friendly
+                applications. Outside of coding, I enjoy theatre, leadership
+                activities, and continuously learning new technologies.
+              </p>
+              <div class="reveal d4">
+                <p
+                  class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3"
+                >
+                  Stack &amp; tools
+                </p>
+                <div
+                  class="reveal d4 flex flex-wrap gap-2"
+                  role="list"
+                  aria-label="Skills"
+                >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >Java</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >C/C++</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >MS Office</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >React</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >MySQL</span
+                  >
+                  <span
+                    role="listitem"
+                    class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent"
+                    >Python</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Skills ═══ -->
+      <section id="Skills" class="skills-section">
+        <div class="skills-heading reveal">
+          <p class="skills-subtitle reveal">I WORK ON THESE</p>
+
+          <h2 class="skills-title">Technical Skills</h2>
+        </div>
+        <button id="prevBtn" class="nav-arrow left-arrow">❮</button>
+
+        <div class="card-container reveal d1">
+          <div class="skill-card prev reveal d4"></div>
+
+          <div class="skill-card active reveal d1"></div>
+
+          <div class="skill-card next reveal d4"></div>
+        </div>
+
+        <button id="nextBtn" class="nav-arrow right-arrow reveal d2">❯</button>
+      </section>
+      <!-- ═══ project ═══ -->
+      <section id="project" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justi fy-between gap-4 mb-14"
+          >
+            <div>
+              <p
+                class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+              >
+                Portfolio
+              </p>
+              <h2
+                class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+              >
+                My Projects
+              </h2>
+            </div>
+            <a
+              href="projects.html"
+              class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl"
+              >View all projects →</a
+            >
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Featured Project -->
+            <article
+              class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent md:row-span-2"
+            >
+              <div
+                class="pf w-full h-64 md:h-80 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4"
+              >
+                <img
+                  src="mykart.png"
+                  alt="myKart Hyperlocal Platform"
+                  loading="lazy"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+
+              <div class="p-7">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-3 py-1 rounded-full"
+                  >
+                    E-Commerce
+                  </span>
+
+                  <span
+                    class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full"
+                  >
+                    Typescript
+                  </span>
+
+                  <span
+                    class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full"
+                  >
+                    Responsive UI
+                  </span>
+                </div>
+
+                <p class="text-orange-500 text-sm mb-3">Featured Project</p>
+
+                <h3
+                  class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-2"
+                >
+                  myKart - Hyperlocal Platform
+                </h3>
+
+                <p
+                  class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5"
+                >
+                  myKart is a full-stack web application that helps users
+                  discover nearby local shops and reserve products before
+                  visiting. The platform aims to bridge the gap between
+                  customers and local businesses by providing a digital
+                  marketplace for neighbourhood stores.<br /><br />
+
+                  The frontend is built using Next.js, React, TypeScript, and
+                  Tailwind CSS, while the backend uses Spring Boot,
+                  JPA/Hibernate, and H2 Database (Development). Customers can
+                  browse shops, view products, manage carts, place reservations,
+                  and track orders. Shop owners can register their stores and
+                  manage their business through a dedicated dashboard.<br /><br />
+
+                  The platform includes features such as user authentication,
+                  shop listings, product browsing, cart management, order
+                  tracking, customer feedback, and location-based shop
+                  discovery. It also incorporates SEO optimization using
+                  metadata and structured data for improved search engine
+                  visibility.<br /><br />
+
+                  Overall, myKart demonstrates full-stack development skills by
+                  integrating a modern frontend, RESTful backend services,
+                  database management, and a practical real-world business use
+                  case.<br /><br />
+                </p>
+
+                <!-- <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+                View Project →
+              </a> -->
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article
+              class="inline-block reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent"
+            >
+              <div
+                class="pf bg-zinc-100 dark:bg-zinc-800 p-4 flex justify-center"
+              >
+                <img
+                  src="els.png"
+                  alt="ELS Website"
+                  loading="lazy"
+                  class="h-auto w-auto max-w-none"
+                />
+              </div>
+
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-3 py-1 rounded-full"
+                  >
+                    Live Project
+                  </span>
+
+                  <span
+                    class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full"
+                  >
+                    Web Development
+                  </span>
+                </div>
+
+                <p class="text-orange-500 text-sm mb-3">Client Project</p>
+
+                <h3
+                  class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5"
+                >
+                  <a
+                    href="https://els.org.in"
+                    target="_blank"
+                    class="hover:text-accent transition-colors"
+                  >
+                    ELS.org.in - Legal Firm Website
+                  </a>
+                </h3>
+
+                <p
+                  class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4"
+                >
+                  Designed and developed a professional website for a law firm,
+                  enabling users to explore legal services and book appointments
+                  online.
+                </p>
+
+                <a
+                  href="https://els.org.in"
+                  target="_blank"
+                  class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl"
+                >
+                  Visit Website →
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article
+              class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent"
+            >
+              <div
+                class="pf w-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4"
+              >
+                <img
+                  src="ss.png"
+                  alt="StudySnakes Learning Platform"
+                  loading="lazy"
+                  class="max-w-full h-auto object-contain"
+                />
+              </div>
+
+              <div class="p-6">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-3 py-1 rounded-full"
+                  >
+                    Education
+                  </span>
+
+                  <span
+                    class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full"
+                  >
+                    UI/UX
+                  </span>
+                </div>
+
+                <p class="text-orange-500 text-sm mb-3">Personal Project</p>
+
+                <h3
+                  class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5"
+                >
+                  StudySnakes - Learning Platform
+                </h3>
+
+                <p
+                  class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4"
+                >
+                  Built an educational platform focused on improving the
+                  learning experience through structured content organization,
+                  responsive design, and an intuitive interface that enhances
+                  user engagement.
+                </p>
+
+                <!-- <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+                View Project →
+              </a> -->
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ EDUCATION ═══ -->
+      <section
+        id="education"
+        class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300"
+      >
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="mb-14">
+            <p
+              class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+            >
+              Academic Journey
             </p>
             <h2
-              class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">
-              A bit about<br />who I am
-            </h2>
-            <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-              I am a B.Tech Computer Science student with a strong interest in
-              software development, backend technologies, and problem-solving.
-              My technical skills include Java, Python, MySQL, C/C++, and MS
-              Office. I have gained practical experience through internships
-              and real-world projects, including website development and
-              technical research. Alongside academics, I actively served as
-              the Director and President in the dramatic society Ek Awaaz
-              (2025-26), which has strengthened my leadership, communication,
-              and teamwork skills. I am passionate about learning new
-              technologies and continuously improving my technical and
-              professional abilities.
-            </p>
-            <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-              I believe great interfaces are invisible - they get out of the
-              user's way. I strive to build fast, accessible and user-friendly applications.
-              Outside of coding, I enjoy theatre, leadership activities, and continuously learning new technologies.
-            </p>
-            <div class="reveal d4">
-              <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">
-                Stack &amp; tools
-              </p>
-              <div class="reveal d4 flex flex-wrap gap-2" role="list" aria-label="Skills">
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Java</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">C/C++</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">MS
-                  Office</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">React</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">MySQL</span>
-                <span role="listitem"
-                  class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Python</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Skills ═══ -->
-    <section id="Skills" class="skills-section">
-      <div class="skills-heading reveal ">
-        <p class="skills-subtitle reveal ">I WORK ON THESE</p>
-
-        <h2 class="skills-title">Technical Skills</h2>
-      </div>
-      <button id="prevBtn" class="nav-arrow left-arrow">❮</button>
-
-      <div class="card-container reveal d1">
-        <div class="skill-card prev reveal d4"></div>
-
-        <div class="skill-card active reveal d1"></div>
-
-        <div class="skill-card next reveal d4"></div>
-      </div>
-
-      <button id="nextBtn" class="nav-arrow right-arrow reveal d2">❯</button>
-    </section>
-    <script>
-      const skills = [
-        {
-          name: "MySQL",
-          logo: "🐬",
-          description:
-            "A relational database management system used to store and manage structured data.",
-          uses: [
-            "Web Applications",
-            "Data Storage",
-            "Reporting Systems",
-            "Business Software",
-          ],
-        },
-
-        {
-          name: "HTML & CSS",
-          logo: "<<//>>",
-          description:
-            "Core technologies used to structure and style web pages.",
-          uses: [
-            "Websites",
-            "Landing Pages",
-            "Portfolios",
-            "Responsive Interfaces",
-          ],
-        },
-
-        {
-          name: "JavaScript",
-          logo: "JS",
-          description:
-            "A programming language used to add interactivity and dynamic behaviour to websites.",
-          uses: [
-            "Frontend Development",
-            "Backend Development",
-            "API Integration",
-            "Animations",
-          ],
-        },
-
-        {
-          name: "React.js",
-          logo: "⚛",
-          description:
-            "A JavaScript library used for building interactive and component-based user interfaces.",
-          uses: [
-            "Single Page Applications",
-            "Dashboards",
-            "E-Commerce Websites",
-            "Modern Web Applications",
-          ],
-        },
-
-        {
-          name: "Python",
-          logo: "PY",
-          description:
-            "A versatile and beginner-friendly programming language known for readability and flexibility.",
-          uses: [
-            "Automation",
-            "Data Analysis",
-            "Machine Learning",
-            "Scripting",
-          ],
-        },
-
-        {
-          name: "Java",
-          logo: "☕",
-          description:
-            "An object-oriented language designed for scalable and platform-independent applications.",
-          uses: [
-            "Enterprise Software",
-            "Android Apps",
-            "Backend Systems",
-            "Banking Software",
-          ],
-        },
-      ];
-
-      let current = 0;
-
-      let startX = 0;
-      let endX = 0;
-      const cards = document.querySelectorAll(".skill-card");
-
-      const container = document.querySelector(".card-container");
-      function createCard(skill) {
-        return `
-<div class="skill-logo">
-    ${skill.logo}
-</div>
-<div class="skill-title">
-    ${skill.name}
-</div>
-
-<div class="skill-description">
-    <p>${skill.description}</p>
-</div>
-
-<div class="skill-tags">
-    ${skill.uses.map((item) => `<span>${item}</span>`).join("")}
-</div>
-`;
-      }
-
-      function updateCards() {
-        const prevIndex = (current - 1 + skills.length) % skills.length;
-
-        const nextIndex = (current + 1) % skills.length;
-
-        cards[0].innerHTML = createCard(skills[prevIndex]);
-
-        cards[1].innerHTML = createCard(skills[current]);
-
-        cards[2].innerHTML = createCard(skills[nextIndex]);
-
-        cards[0].className = "skill-card prev";
-        cards[1].className = "skill-card active";
-        cards[2].className = "skill-card next";
-      }
-
-      function nextSkill() {
-        current = (current + 1) % skills.length;
-
-        updateCards();
-      }
-      function prevSkill() {
-        current = (current - 1 + skills.length) % skills.length;
-
-        updateCards();
-      }
-
-      document.getElementById("nextBtn").addEventListener("click", nextSkill);
-
-      document.getElementById("prevBtn").addEventListener("click", prevSkill);
-
-      container.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-      });
-
-      container.addEventListener("touchend", (e) => {
-        endX = e.changedTouches[0].clientX;
-
-        const diff = startX - endX;
-
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) {
-            nextSkill(); // Swipe Left
-          } else {
-            prevSkill(); // Swipe Right
-          }
-        }
-      });
-
-      updateCards();
-    </script>
-
-
-
-    <!-- ═══ project ═══ -->
-    <section id="project" class="py-24">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justi fy-between gap-4 mb-14">
-          <div>
-            <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
-              Portfolio
-            </p>
-            <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
-              My Projects
+              class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+            >
+              Education
             </h2>
           </div>
-          <a href="projects.html"
-            class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">View
-            all
-            projects →</a>
-        </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Featured Project -->
-          <article
-            class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent md:row-span-2">
-            <div class="pf w-full h-64 md:h-80 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4">
-              <img src="mykart.png" alt="myKart Hyperlocal Platform" loading="lazy"
-                class="w-full h-full object-contain" />
-            </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- B.Tech -->
+            <div
+              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <span class="text-accent text-sm font-medium"
+                >2023 - Present</span
+              >
 
-            <div class="p-7">
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-3 py-1 rounded-full">
-                  E-Commerce
-                </span>
-
-                <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
-                  Typescript
-                </span>
-
-                <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
-                  Responsive UI
-                </span>
-              </div>
-
-              <p class="text-orange-500 text-sm mb-3">Featured Project</p>
-
-              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-2">
-                myKart - Hyperlocal Platform
+              <h3
+                class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white"
+              >
+                Bachelor of Technology
               </h3>
 
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">
-                myKart is a full-stack web application that helps users
-                discover nearby local shops and reserve products before
-                visiting. The platform aims to bridge the gap between
-                customers and local businesses by providing a digital
-                marketplace for neighbourhood stores.<br /><br />
-
-                The frontend is built using Next.js, React, TypeScript, and
-                Tailwind CSS, while the backend uses Spring Boot,
-                JPA/Hibernate, and H2 Database (Development). Customers can browse shops,
-                view products, manage carts, place reservations, and track
-                orders. Shop owners can register their stores and manage their
-                business through a dedicated dashboard.<br /><br />
-
-                The platform includes features such as user authentication,
-                shop listings, product browsing, cart management, order
-                tracking, customer feedback, and location-based shop
-                discovery. It also incorporates SEO optimization using
-                metadata and structured data for improved search engine
-                visibility.<br /><br />
-
-                Overall, myKart demonstrates full-stack development skills by
-                integrating a modern frontend, RESTful backend services,
-                database management, and a practical real-world business use
-                case.<br /><br />
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3">
+                Computer Science & Engineering
               </p>
 
-              <!-- <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-                View Project →
-              </a> -->
-            </div>
-          </article>
+              <p class="text-zinc-500 text-sm mt-4">Amity University Haryana</p>
 
-          <!-- Project 2 -->
-          <article
-            class="inline-block reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent">
-            <div class="pf bg-zinc-100 dark:bg-zinc-800 p-4 flex justify-center">
-              <img src="els.png" alt="ELS Website" loading="lazy" class="h-auto w-auto max-w-none" />
+              <p class="text-zinc-500 dark:text-zinc-300 text-sm mt-4">
+                9.00 CGPA (till 6th semester)
+              </p>
             </div>
 
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span
-                  class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-3 py-1 rounded-full">
-                  Live Project
-                </span>
+            <!-- Class 12 -->
+            <div
+              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <span class="text-accent text-sm font-medium">2022 - 2023</span>
 
-                <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
-                  Web Development
-                </span>
-              </div>
-
-              <p class="text-orange-500 text-sm mb-3">Client Project</p>
-
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">
-                <a href="https://els.org.in" target="_blank" class="hover:text-accent transition-colors">
-                  ELS.org.in - Legal Firm Website
-                </a>
+              <h3
+                class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white"
+              >
+                Senior Secondary (XII)
               </h3>
 
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-                Designed and developed a professional website for a law firm, enabling users to explore legal services
-                and book appointments online.
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3">
+                Science Stream (PCM)
               </p>
 
-              <a href="https://els.org.in" target="_blank"
-                class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-                Visit Website →
-              </a>
-            </div>
-          </article>
+              <p class="text-zinc-500 text-sm mt-4">CBSE Board</p>
 
-          <!-- Project 3 -->
-          <article
-            class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent">
-            <div class="pf w-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4">
-              <img src="ss.png" alt="StudySnakes Learning Platform" loading="lazy"
-                class="max-w-full h-auto object-contain" />
+              <p class="text-zinc-500 dark:text-zinc-300 text-sm mt-4">88.4%</p>
             </div>
 
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span
-                  class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-3 py-1 rounded-full">
-                  Education
-                </span>
+            <!-- Class 10 -->
+            <div
+              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <span class="text-accent text-sm font-medium">2020 - 2021</span>
 
-                <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
-                  UI/UX
-                </span>
-              </div>
-
-              <p class="text-orange-500 text-sm mb-3">Personal Project</p>
-
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">
-                StudySnakes - Learning Platform
+              <h3
+                class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white"
+              >
+                Secondary Education (X)
               </h3>
 
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-                Built an educational platform focused on improving the
-                learning experience through structured content organization,
-                responsive design, and an intuitive interface that enhances
-                user engagement.
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3">
+                CBSE Curriculum
               </p>
 
-              <!-- <a href="#" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
-                View Project →
-              </a> -->
+              <p class="text-zinc-500 text-sm mt-4">CBSE Board</p>
+              <p class="text-zinc-500 dark:text-zinc-300 text-sm mt-4">92.5%</p>
             </div>
-          </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ═══ EDUCATION ═══ -->
-    <section id="education"
-      class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-14">
-          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
-            Academic Journey
-          </p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
-            Education
-          </h2>
-        </div>
+      <!-- Experience Section -->
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- B.Tech -->
-          <div
-            class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <span class="text-accent text-sm font-medium">2023 - Present</span>
-
-            <h3 class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white">
-              Bachelor of Technology
-            </h3>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mt-3">
-              Computer Science & Engineering
+      <section id="Experience" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+        <div class="max-w-6xl mx-auto px-6">
+          <!-- Section Heading -->
+          <div class="mb-14">
+            <p
+              class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+            >
+              Professional Journey
             </p>
 
-            <p class="text-zinc-500 text-sm mt-4">Amity University Haryana</p>
-
-            <p class="text-zinc-500 dark:text-zinc-300 text-sm mt-4">
-              9.00 CGPA (till 6th semester)
-            </p>
-          </div>
-
-          <!-- Class 12 -->
-          <div
-            class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <span class="text-accent text-sm font-medium">2022 - 2023</span>
-
-            <h3 class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white">
-              Senior Secondary (XII)
-            </h3>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mt-3">Science Stream (PCM)</p>
-
-            <p class="text-zinc-500 text-sm mt-4">CBSE Board</p>
-
-            <p class="text-zinc-500 dark:text-zinc-300 text-sm mt-4">88.4%</p>
-          </div>
-
-          <!-- Class 10 -->
-          <div
-            class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <span class="text-accent text-sm font-medium">2020 - 2021</span>
-
-            <h3 class="text-xl font-semibold mt-3 text-zinc-900 dark:text-white">
-              Secondary Education (X)
-            </h3>
-
-            <p class="text-zinc-600 dark:text-zinc-400 mt-3">
-              CBSE Curriculum
-            </p>
-
-            <p class="text-zinc-500 text-sm mt-4">CBSE Board</p>
-            <p class="text-zinc-500 dark:text-zinc-300 text-sm mt-4">92.5%</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-
-    <section id="Experience" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- Section Heading -->
-        <div class="mb-14">
-          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
-            Professional Journey
-          </p>
-
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
-            Experience
-          </h2>
-        </div>
-
-        <div class="space-y-8">
-          <article
-            class="reveal d3 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
-            <div class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8">
-              <img src="l1.png" alt="DFM Foods Ltd."
-                class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105" />
-            </div>
-
-            <div class="p-8 flex flex-col justify-center">
-              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">
-                <a href="https://crax.in/" target="_blank" class="text-accent">
-                  DFM Foods Ltd.
-                </a>
-              </h3>
-
-              <p class="text-accent font-medium mt-2">
-                June 2024 – July 2024
-              </p>
-
-              <p class="mt-4 text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Conducted research on AI capabilities within enterprise
-                software solutions and explored opportunities to enhance
-                operational efficiency through emerging technologies.
-              </p>
-            </div>
-          </article>
-
-          <!-- Experience 2 -->
-          <article
-            class="reveal d1 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
-            <div class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8">
-              <img src="l2.png" alt="CreativePath Techno Solutions"
-                class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105" />
-            </div>
-
-            <div class="p-8 flex flex-col justify-center">
-              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">
-                <a href="https://www.creativepath.in/" target="_blank" class="text-accent">
-                  CreativePath Techno Solutions
-                </a>
-              </h3>
-
-              <p class="text-accent font-medium mt-2">
-                June 2025 - July 2025
-              </p>
-
-              <p class="mt-4 text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Worked on web development projects, software solutions, and client requirements while gaining hands-on
-                industry experience.
-              </p>
-            </div>
-          </article>
-
-          <!-- Experience 3 -->
-          <article
-            class="reveal d2 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
-            <div class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8">
-              <img src="l3.png" alt="IndiGo Airlines"
-                class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105" />
-            </div>
-
-            <div class="p-8 flex flex-col justify-center">
-              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">
-                <a href="https://www.goindigo.in/" target="_blank" class="text-accent">
-                  IndiGo Airlines
-                </a>
-              </h3>
-
-              <p class="text-accent font-medium mt-2">
-                June 2026 – August 2026
-              </p>
-
-              <p class="mt-4 text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Worked on IT-related tasks and gained exposure to enterprise systems, operational workflows, and
-                large-scale business processes within the aviation industry.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ CERTIFICATIONS ═══ -->
-
-    <section id="certifications" class="py-24 bg-zinc-950 text-white">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- Heading -->
-        <div class="text-center mb-16">
-          <p class="text-teal-500 uppercase tracking-[0.3em] text-sm">
-            My Achievements
-          </p>
-
-          <h2 class="text-5xl font-bold mt-4">Certifications</h2>
-
-          <div class="w-24 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <!-- Cards -->
-        <div class="space-y-8">
-          <!-- Certificate 1 -->
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
-              🏆
-            </div>
-
-            <div class="flex-1 text-center md:text-left">
-              <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-                Programming, Data Structures and Algorithms Using Python
-              </h3>
-
-              <p class="text-zinc-400 mt-2">NPTEL • IIT Madras</p>
-
-              <p class="text-zinc-500 text-sm mt-1">2025</p>
-            </div>
-
-            <button onclick="openCertificate('c4.png')"
-              class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-              View
-            </button>
-          </div>
-
-          <!-- Certificate 2 -->
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
-              🤖
-            </div>
-
-            <div class="flex-1 text-center md:text-left">
-              <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-                Artificial Intelligence (AI)
-              </h3>
-
-              <p class="text-zinc-400 mt-2">
-                Samsung Innovation Campus (SIC)
-              </p>
-
-              <p class="text-zinc-500 text-sm mt-1">2026</p>
-            </div>
-
-            <button onclick="openCertificate('c5.jpeg')"
-              class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-              View
-            </button>
-          </div>
-
-          <!-- Certificate 3 -->
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
-              JS
-            </div>
-
-            <div class="flex-1 text-center md:text-left">
-              <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-                JavaScript (Basic)
-              </h3>
-
-              <p class="text-zinc-400 mt-2">
-                HackerRank
-              </p>
-
-              <p class="text-zinc-500 text-sm mt-1">2026</p>
-            </div>
-
-            <button onclick="openCertificate('c6.png')"
-              class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-              View
-            </button>
-          </div>
-
-          <!-- Certificate 4-->
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer">
-            <div class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl">
-              🐬
-            </div>
-
-            <div class="flex-1 text-center md:text-left">
-              <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-                MySQL (Intermediate)
-              </h3>
-
-              <p class="text-zinc-400 mt-2">
-                HackerRank
-              </p>
-
-              <p class="text-zinc-500 text-sm mt-1">2026</p>
-            </div>
-
-            <button onclick="openCertificate('c8.png')"
-              class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-              View
-            </button>
-          </div>
-
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ EXTRA-CURRICULAR ═══ -->
-    <section id="extra"
-      class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300">
-
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-          <div>
-            <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
-              My
-            </p>
-            <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
-              Extra-Curricular Activities
+            <h2
+              class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+            >
+              Experience
             </h2>
           </div>
+
+          <div class="space-y-8">
+            <article
+              class="reveal d3 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+            >
+              <div
+                class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8"
+              >
+                <img
+                  src="l1.png"
+                  alt="DFM Foods Ltd."
+                  class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+
+              <div class="p-8 flex flex-col justify-center">
+                <h3
+                  class="font-display font-bold text-2xl text-zinc-900 dark:text-white"
+                >
+                  <a
+                    href="https://crax.in/"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    DFM Foods Ltd.
+                  </a>
+                </h3>
+
+                <p class="text-accent font-medium mt-2">
+                  June 2024 – July 2024
+                </p>
+
+                <p
+                  class="mt-4 text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                >
+                  Conducted research on AI capabilities within enterprise
+                  software solutions and explored opportunities to enhance
+                  operational efficiency through emerging technologies.
+                </p>
+              </div>
+            </article>
+
+            <!-- Experience 2 -->
+            <article
+              class="reveal d1 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+            >
+              <div
+                class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8"
+              >
+                <img
+                  src="l2.png"
+                  alt="CreativePath Techno Solutions"
+                  class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+
+              <div class="p-8 flex flex-col justify-center">
+                <h3
+                  class="font-display font-bold text-2xl text-zinc-900 dark:text-white"
+                >
+                  <a
+                    href="https://www.creativepath.in/"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    CreativePath Techno Solutions
+                  </a>
+                </h3>
+
+                <p class="text-accent font-medium mt-2">
+                  June 2025 - July 2025
+                </p>
+
+                <p
+                  class="mt-4 text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                >
+                  Worked on web development projects, software solutions, and
+                  client requirements while gaining hands-on industry
+                  experience.
+                </p>
+              </div>
+            </article>
+
+            <!-- Experience 3 -->
+            <article
+              class="reveal d2 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+            >
+              <div
+                class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8"
+              >
+                <img
+                  src="l3.png"
+                  alt="IndiGo Airlines"
+                  class="w-auto max-w-full max-h-32 md:max-h-44 object-contain transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+
+              <div class="p-8 flex flex-col justify-center">
+                <h3
+                  class="font-display font-bold text-2xl text-zinc-900 dark:text-white"
+                >
+                  <a
+                    href="https://www.goindigo.in/"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    IndiGo Airlines
+                  </a>
+                </h3>
+
+                <p class="text-accent font-medium mt-2">
+                  June 2026 – August 2026
+                </p>
+
+                <p
+                  class="mt-4 text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                >
+                  Worked on IT-related tasks and gained exposure to enterprise
+                  systems, operational workflows, and large-scale business
+                  processes within the aviation industry.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <article
-            class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
-            <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
-              <img src="c1.png" alt="Director and President"
-                class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
-                loading="lazy" onclick="openImage(this.src)" />
-            </div>
+      <!-- ═══ CERTIFICATIONS ═══ -->
 
-            <div class="p-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">
-                  Leadership and Management
-                </span>
-                <span class="text-xs text-zinc-400">2025-26</span>
+      <section id="certifications" class="py-24 bg-zinc-950 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <!-- Heading -->
+          <div class="text-center mb-16">
+            <p class="text-teal-500 uppercase tracking-[0.3em] text-sm">
+              My Achievements
+            </p>
+
+            <h2 class="text-5xl font-bold mt-4">Certifications</h2>
+
+            <div class="w-24 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
+          </div>
+
+          <!-- Cards -->
+          <div class="space-y-8">
+            <!-- Certificate 1 -->
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
+              >
+                🏆
               </div>
 
-              <h3
-                class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">
-                Director and President
-              </h3>
+              <div class="flex-1 text-center md:text-left">
+                <h3
+                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                >
+                  Programming, Data Structures and Algorithms Using Python
+                </h3>
 
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Served as the Director and President of the University's
-                oldest dramatic society, Ek Awaaz. Led multiple events,
-                coordinated teams, and directed several stage and street
-                plays.
-              </p>
-            </div>
-          </article>
+                <p class="text-zinc-400 mt-2">NPTEL • IIT Madras</p>
 
-          <!-- Card 2 -->
-          <article
-            class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
-            <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
-              <img src="c2.jpeg" alt="Core Team Lead"
-                class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
-                loading="lazy" onclick="openImage(this.src)" />
-            </div>
-
-            <div class="p-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">
-                  Team Work and Public Relations
-                </span>
-                <span class="text-xs text-zinc-400">2026-Present</span>
+                <p class="text-zinc-500 text-sm mt-1">2025</p>
               </div>
 
-              <h3
-                class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">
-                Core Team Lead
-              </h3>
-
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Served as the Team Lead in the University's annual cultural
-                fest, Amifest'26, where I managed and coordinated the
-                back-office team.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article
-            class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
-            <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
-              <img src="c3.png" alt="EmCee"
-                class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
-                loading="lazy" onclick="openImage(this.src)" />
+              <button
+                onclick="openCertificate('c4.png')"
+                class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+              >
+                View
+              </button>
             </div>
 
-            <div class="p-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">
-                  Public Speaking
-                </span>
-                <span class="text-xs text-zinc-400">2023-Present</span>
+            <!-- Certificate 2 -->
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
+              >
+                🤖
               </div>
 
-              <h3
-                class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">
-                EmCee (Master of Ceremonies)
-              </h3>
+              <div class="flex-1 text-center md:text-left">
+                <h3
+                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                >
+                  Artificial Intelligence (AI)
+                </h3>
 
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Hosted several university-level events including Freshers'
-                Welcome, Hostel Evening, and various cultural programs.
-              </p>
+                <p class="text-zinc-400 mt-2">
+                  Samsung Innovation Campus (SIC)
+                </p>
+
+                <p class="text-zinc-500 text-sm mt-1">2026</p>
+              </div>
+
+              <button
+                onclick="openCertificate('c5.jpeg')"
+                class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+              >
+                View
+              </button>
             </div>
-          </article>
-          <!-- Card 4 (Founder - Baithak)
+
+            <!-- Certificate 3 -->
+
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
+              >
+                JS
+              </div>
+
+              <div class="flex-1 text-center md:text-left">
+                <h3
+                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                >
+                  JavaScript (Basic)
+                </h3>
+
+                <p class="text-zinc-400 mt-2">HackerRank</p>
+
+                <p class="text-zinc-500 text-sm mt-1">2026</p>
+              </div>
+
+              <button
+                onclick="openCertificate('c6.png')"
+                class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+              >
+                View
+              </button>
+            </div>
+
+            <!-- Certificate 4-->
+
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
+              >
+                🐬
+              </div>
+
+              <div class="flex-1 text-center md:text-left">
+                <h3
+                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                >
+                  MySQL (Intermediate)
+                </h3>
+
+                <p class="text-zinc-400 mt-2">HackerRank</p>
+
+                <p class="text-zinc-500 text-sm mt-1">2026</p>
+              </div>
+
+              <button
+                onclick="openCertificate('c8.png')"
+                class="px-5 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+              >
+                View
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ EXTRA-CURRICULAR ═══ -->
+      <section
+        id="extra"
+        class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300"
+      >
+        <div class="max-w-6xl mx-auto px-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
+          >
+            <div>
+              <p
+                class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"
+              >
+                My
+              </p>
+              <h2
+                class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"
+              >
+                Extra-Curricular Activities
+              </h2>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <article
+              class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+            >
+              <div
+                class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]"
+              >
+                <img
+                  src="c1.png"
+                  alt="Director and President"
+                  class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
+                  loading="lazy"
+                  onclick="openImage(this.src)"
+                />
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span
+                    class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-2.5 py-1 rounded-full"
+                  >
+                    Leadership and Management
+                  </span>
+                  <span class="text-xs text-zinc-400">2025-26</span>
+                </div>
+
+                <h3
+                  class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors"
+                >
+                  Director and President
+                </h3>
+
+                <p
+                  class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                >
+                  Served as the Director and President of the University's
+                  oldest dramatic society, Ek Awaaz. Led multiple events,
+                  coordinated teams, and directed several stage and street
+                  plays.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+              class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+            >
+              <div
+                class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]"
+              >
+                <img
+                  src="c2.jpeg"
+                  alt="Core Team Lead"
+                  class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
+                  loading="lazy"
+                  onclick="openImage(this.src)"
+                />
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span
+                    class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-2.5 py-1 rounded-full"
+                  >
+                    Team Work and Public Relations
+                  </span>
+                  <span class="text-xs text-zinc-400">2026-Present</span>
+                </div>
+
+                <h3
+                  class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors"
+                >
+                  Core Team Lead
+                </h3>
+
+                <p
+                  class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                >
+                  Served as the Team Lead in the University's annual cultural
+                  fest, Amifest'26, where I managed and coordinated the
+                  back-office team.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+            >
+              <div
+                class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]"
+              >
+                <img
+                  src="c3.png"
+                  alt="EmCee"
+                  class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
+                  loading="lazy"
+                  onclick="openImage(this.src)"
+                />
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span
+                    class="text-xs bg-teal-50 dark:bg-zinc-800 text-accent border border-teal-200 dark:border-zinc-700 px-2.5 py-1 rounded-full"
+                  >
+                    Public Speaking
+                  </span>
+                  <span class="text-xs text-zinc-400">2023-Present</span>
+                </div>
+
+                <h3
+                  class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors"
+                >
+                  EmCee (Master of Ceremonies)
+                </h3>
+
+                <p
+                  class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                >
+                  Hosted several university-level events including Freshers'
+                  Welcome, Hostel Evening, and various cultural programs.
+                </p>
+              </div>
+            </article>
+            <!-- Card 4 (Founder - Baithak)
   
           <article
             class="reveal d4 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
@@ -1281,403 +1446,424 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
               </p>
             </div>
           </article> -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ SOFT SKILLS ═══ -->
-
-    <section id="softskills" class="py-24 bg-zinc-950 text-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <!-- Heading -->
-        <div class="text-center mb-16">
-          <p class="text-teal-500 uppercase tracking-[0.3em] text-sm">
-            Beyond Technical Skills
-          </p>
-
-          <h2 class="text-5xl font-bold mt-4">Soft Skills</h2>
-
-          <div class="w-24 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <!-- Skills Grid -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Skill Card -->
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
-            <div class="text-5xl mb-5">🎤</div>
-
-            <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-              Public Speaking
-            </h3>
-
-            <p class="text-zinc-400 mt-3 leading-relaxed">
-              Confident speaker with experience hosting events, directing
-              performances and addressing large audiences.
-            </p>
-          </div>
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
-            <div class="text-5xl mb-5">🤝</div>
-
-            <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-              Team Leadership
-            </h3>
-
-            <p class="text-zinc-400 mt-3 leading-relaxed">
-              Led teams during dramatics productions and collaborative
-              technical projects.
-            </p>
-          </div>
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
-            <div class="text-5xl mb-5">💡</div>
-
-            <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-              Problem Solving
-            </h3>
-
-            <p class="text-zinc-400 mt-3 leading-relaxed">
-              Analytical thinker capable of breaking complex challenges into
-              practical solutions.
-            </p>
-          </div>
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
-            <div class="text-5xl mb-5">🗣️</div>
-
-            <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-              Communication
-            </h3>
-
-            <p class="text-zinc-400 mt-3 leading-relaxed">
-              Effective communicator skilled in presenting technical and
-              non-technical ideas clearly.
-            </p>
-          </div>
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
-            <div class="text-5xl mb-5">⚡</div>
-
-            <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-              Adaptability
-            </h3>
-
-            <p class="text-zinc-400 mt-3 leading-relaxed">
-              Quick learner who adapts to new technologies, environments and
-              responsibilities.
-            </p>
-          </div>
-
-          <div
-            class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300">
-            <div class="text-5xl mb-5">🎯</div>
-
-            <h3 class="text-2xl font-bold group-hover:text-teal-500 transition">
-              Time Management
-            </h3>
-
-            <p class="text-zinc-400 mt-3 leading-relaxed">
-              Balanced academics, internships, projects and extracurricular
-              leadership efficiently.
-            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Fullscreen Image Viewer -->
+      <!-- ═══ SOFT SKILLS ═══ -->
 
-    <div id="imageModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] p-4">
-      <button onclick="closeImage()" class="absolute top-5 right-8 text-white text-5xl hover:text-teal-400 transition">
-        ×
-      </button>
+      <section id="softskills" class="py-24 bg-zinc-950 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+          <!-- Heading -->
+          <div class="text-center mb-16">
+            <p class="text-teal-500 uppercase tracking-[0.3em] text-sm">
+              Beyond Technical Skills
+            </p>
 
-      <img id="modalImg" class="max-w-[95%] max-h-[95vh] object-contain rounded-lg shadow-2xl" />
-    </div>
+            <h2 class="text-5xl font-bold mt-4">Soft Skills</h2>
 
-    <script>
-      function openImage(src) {
-        document.getElementById("modalImg").src = src;
-        document.getElementById("imageModal").classList.remove("hidden");
-        document.getElementById("imageModal").classList.add("flex");
-        document.body.style.overflow = "hidden";
-      }
+            <div class="w-24 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
+          </div>
 
-      function closeImage() {
-        document.getElementById("imageModal").classList.add("hidden");
-        document.getElementById("imageModal").classList.remove("flex");
-        document.body.style.overflow = "auto";
-      }
+          <!-- Skills Grid -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Skill Card -->
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div class="text-5xl mb-5">🎤</div>
 
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeImage();
-      });
+              <h3
+                class="text-2xl font-bold group-hover:text-teal-500 transition"
+              >
+                Public Speaking
+              </h3>
 
-      document
-        .getElementById("imageModal")
-        .addEventListener("click", function (e) {
-          if (e.target === this) closeImage();
-        });
-    </script>
-    </section>
-
-    <!-- ═══ CONTACT ═══ -->
-    <section id="contact" class="py-24 bg-zinc-950 text-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <!-- Heading -->
-        <div class="text-center mb-16">
-          <p class="text-teal-500 uppercase tracking-[0.3em] text-sm">
-            Let's Connect
-          </p>
-
-          <h2 class="text-5xl font-bold mt-4 reveal">
-            Let's Work Together
-          </h2>
-
-          <p class="text-zinc-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed reveal">
-            Looking for a Software Engineer, Backend Developer, or Full Stack Developer? I enjoy building scalable
-            applications and solving real-world problems through clean, efficient, and impactful software. I'm currently
-            open to internships, full-time opportunities, and freelance projects.
-          </p>
-        </div>
-
-        <!-- Main Grid -->
-        <div class="grid lg:grid-cols-2 gap-10 reveal">
-          <!-- Left Side -->
-          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1
-hover:shadow-[0_0_40px_rgba(13,148,136,0.2)]
-transition-all
-duration-300 reveal">
-            <h3 class="text-3xl font-bold mb-8">Available For</h3>
-
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Web Development</span>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Backend Development Roles</span>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Software Engineering Internships</span>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Freelance Development Projects</span>
-              </div>
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Front-End Development</span>
-              </div>
-              <div class="flex items-center gap-4">
-                <span class="text-teal-500 text-xl">✓</span>
-                <span>Full Stack Development</span>
-              </div>
+              <p class="text-zinc-400 mt-3 leading-relaxed">
+                Confident speaker with experience hosting events, directing
+                performances and addressing large audiences.
+              </p>
             </div>
 
-            <div class="mt-10">
-              <a href="YashMittalResumeN.pdf" target="_blank"
-                class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-                Download Resume
-              </a>
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div class="text-5xl mb-5">🤝</div>
+
+              <h3
+                class="text-2xl font-bold group-hover:text-teal-500 transition"
+              >
+                Team Leadership
+              </h3>
+
+              <p class="text-zinc-400 mt-3 leading-relaxed">
+                Led teams during dramatics productions and collaborative
+                technical projects.
+              </p>
+            </div>
+
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div class="text-5xl mb-5">💡</div>
+
+              <h3
+                class="text-2xl font-bold group-hover:text-teal-500 transition"
+              >
+                Problem Solving
+              </h3>
+
+              <p class="text-zinc-400 mt-3 leading-relaxed">
+                Analytical thinker capable of breaking complex challenges into
+                practical solutions.
+              </p>
+            </div>
+
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div class="text-5xl mb-5">🗣️</div>
+
+              <h3
+                class="text-2xl font-bold group-hover:text-teal-500 transition"
+              >
+                Communication
+              </h3>
+
+              <p class="text-zinc-400 mt-3 leading-relaxed">
+                Effective communicator skilled in presenting technical and
+                non-technical ideas clearly.
+              </p>
+            </div>
+
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div class="text-5xl mb-5">⚡</div>
+
+              <h3
+                class="text-2xl font-bold group-hover:text-teal-500 transition"
+              >
+                Adaptability
+              </h3>
+
+              <p class="text-zinc-400 mt-3 leading-relaxed">
+                Quick learner who adapts to new technologies, environments and
+                responsibilities.
+              </p>
+            </div>
+
+            <div
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div class="text-5xl mb-5">🎯</div>
+
+              <h3
+                class="text-2xl font-bold group-hover:text-teal-500 transition"
+              >
+                Time Management
+              </h3>
+
+              <p class="text-zinc-400 mt-3 leading-relaxed">
+                Balanced academics, internships, projects and extracurricular
+                leadership efficiently.
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Right Side -->
-          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1
-hover:shadow-[0_0_40px_rgba(13,148,136,0.2)]
-transition-all
-duration-300 reveal">
-            <h3 class="text-3xl font-bold mb-8">Contact Information</h3>
+      <!-- Fullscreen Image Viewer -->
 
-            <div class="space-y-8">
-              <!-- Email -->
-              <div>
-                <p class="text-teal-500 uppercase text-sm tracking-wider mb-2">
-                  Email
-                </p>
+      <div
+        id="imageModal"
+        class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] p-4"
+      >
+        <button
+          onclick="closeImage()"
+          class="absolute top-5 right-8 text-white text-5xl hover:text-teal-400 transition"
+        >
+          ×
+        </button>
 
-                <a href="mailto:yashlink25@gmail.com" class="text-lg hover:text-teal-500 transition">
-                  yashlink25@gmail.com
+        <img
+          id="modalImg"
+          class="max-w-[95%] max-h-[95vh] object-contain rounded-lg shadow-2xl"
+        />
+      </div>
+
+      <!-- ═══ CONTACT ═══ -->
+      <section id="contact" class="py-24 bg-zinc-950 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+          <!-- Heading -->
+          <div class="text-center mb-16">
+            <p class="text-teal-500 uppercase tracking-[0.3em] text-sm">
+              Let's Connect
+            </p>
+
+            <h2 class="text-5xl font-bold mt-4 reveal">Let's Work Together</h2>
+
+            <p
+              class="text-zinc-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed reveal"
+            >
+              Looking for a Software Engineer, Backend Developer, or Full Stack
+              Developer? I enjoy building scalable applications and solving
+              real-world problems through clean, efficient, and impactful
+              software. I'm currently open to internships, full-time
+              opportunities, and freelance projects.
+            </p>
+          </div>
+
+          <!-- Main Grid -->
+          <div class="grid lg:grid-cols-2 gap-10 reveal">
+            <!-- Left Side -->
+            <div
+              class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] transition-all duration-300 reveal"
+            >
+              <h3 class="text-3xl font-bold mb-8">Available For</h3>
+
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <span class="text-teal-500 text-xl">✓</span>
+                  <span>Web Development</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <span class="text-teal-500 text-xl">✓</span>
+                  <span>Backend Development Roles</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <span class="text-teal-500 text-xl">✓</span>
+                  <span>Software Engineering Internships</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <span class="text-teal-500 text-xl">✓</span>
+                  <span>Freelance Development Projects</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-teal-500 text-xl">✓</span>
+                  <span>Front-End Development</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-teal-500 text-xl">✓</span>
+                  <span>Full Stack Development</span>
+                </div>
+              </div>
+
+              <div class="mt-10">
+                <a
+                  href="YashMittalResumeN.pdf"
+                  target="_blank"
+                  class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+                >
+                  Download Resume
                 </a>
               </div>
-
-              <!-- Phone -->
-              <div>
-                <p class="text-teal-500 uppercase text-sm tracking-wider mb-2">
-                  Phone
-                </p>
-
-                <a href="tel:+917988834518" class="text-lg hover:text-teal-500 transition">
-                  +91 7988834518
-                </a>
-              </div>
-
-              <!-- Location -->
-              <div>
-                <p class="text-teal-500 uppercase text-sm tracking-wider mb-2">
-                  Location
-                </p>
-
-                <p class="text-lg">
-                  India • Open to Remote & Relocation Opportunities
-                </p>
-              </div>
             </div>
 
-            <!-- Buttons -->
-            <div class="flex flex-wrap gap-5 mt-10">
-              <a href="mailto:yashlink25@gmail.com"
-                class="px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition">
-                Contact Me
-              </a>
+            <!-- Right Side -->
+            <div
+              class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] transition-all duration-300 reveal"
+            >
+              <h3 class="text-3xl font-bold mb-8">Contact Information</h3>
 
-              <!-- <a href="YashMittalResumeN.pdf" target="_blank"
+              <div class="space-y-8">
+                <!-- Email -->
+                <div>
+                  <p
+                    class="text-teal-500 uppercase text-sm tracking-wider mb-2"
+                  >
+                    Email
+                  </p>
+
+                  <a
+                    href="mailto:yashlink25@gmail.com"
+                    class="text-lg hover:text-teal-500 transition"
+                  >
+                    yashlink25@gmail.com
+                  </a>
+                </div>
+
+                <!-- Phone -->
+                <div>
+                  <p
+                    class="text-teal-500 uppercase text-sm tracking-wider mb-2"
+                  >
+                    Phone
+                  </p>
+
+                  <a
+                    href="tel:+917988834518"
+                    class="text-lg hover:text-teal-500 transition"
+                  >
+                    +91 7988834518
+                  </a>
+                </div>
+
+                <!-- Location -->
+                <div>
+                  <p
+                    class="text-teal-500 uppercase text-sm tracking-wider mb-2"
+                  >
+                    Location
+                  </p>
+
+                  <p class="text-lg">
+                    India • Open to Remote & Relocation Opportunities
+                  </p>
+                </div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex flex-wrap gap-5 mt-10">
+                <a
+                  href="mailto:yashlink25@gmail.com"
+                  class="px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+                >
+                  Contact Me
+                </a>
+
+                <!-- <a href="YashMittalResumeN.pdf" target="_blank"
                 class="px-6 py-3 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-black transition">
                 Resume
               </a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="mt-16 text-center">
+            <h3 class="text-2xl font-bold mb-8">Connect With Me</h3>
+
+            <div class="flex flex-wrap justify-center gap-6">
+              <a
+                href="https://www.linkedin.com/in/yash-mittal-550462279/"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300"
+              >
+                <i class="fa-brands fa-linkedin text-teal-500 text-xl"></i>
+                <span>LinkedIn</span>
+              </a>
+
+              <a
+                href="https://github.com/yashmittal02"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300"
+              >
+                <i class="fa-brands fa-github text-teal-500 text-xl"></i>
+                <span>GitHub</span>
+              </a>
+
+              <a
+                href="https://www.hackerrank.com/profile/yashmittal02"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300"
+              >
+                <i class="fa-brands fa-hackerrank text-teal-500 text-xl"></i>
+                <span>HackerRank</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-zinc-800 bg-zinc-950">
+      <div class="max-w-7xl mx-auto px-6 py-14">
+        <div class="grid md:grid-cols-3 gap-10">
+          <!-- Left -->
+          <div>
+            <h2 class="text-3xl font-bold text-white">
+              Yash <span class="text-teal-500">Mittal</span>
+            </h2>
+
+            <p class="mt-4 text-zinc-400 leading-7 max-w-sm">
+              Software Engineer passionate about building scalable web
+              applications, backend systems, and solving real-world problems
+              through clean and efficient code.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-white font-semibold text-lg mb-5">Quick Links</h3>
+
+            <ul class="space-y-3">
+              <li><a href="#hero" class="footer-link">Home</a></li>
+
+              <li><a href="#about" class="footer-link">About</a></li>
+
+              <li><a href="#Skills" class="footer-link">Skills</a></li>
+
+              <li><a href="#education" class="footer-link">Education</a></li>
+
+              <li><a href="#Experience" class="footer-link">Experience</a></li>
+
+              <li><a href="#project" class="footer-link">Projects</a></li>
+
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-white font-semibold text-lg mb-5">Let's Connect</h3>
+
+            <div class="space-y-3">
+              <p class="text-zinc-400">📧 yashlink25@gmail.com</p>
+
+              <p class="text-zinc-400">📍 New Delhi, India</p>
+            </div>
+
+            <div class="flex gap-4 mt-6">
+              <a
+                href="https://github.com/yashmittal02"
+                target="_blank"
+                class="footer-social"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/yash-mittal-550462279/"
+                target="_blank"
+                class="footer-social"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://www.hackerrank.com/profile/yashmittal02"
+                target="_blank"
+                class="footer-social"
+              >
+                HackerRank
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Social Links -->
-        <div class="mt-16 text-center">
-          <h3 class="text-2xl font-bold mb-8">Connect With Me</h3>
-
-          <div class="flex flex-wrap justify-center gap-6">
-  <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank"
-    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300">
-    <i class="fa-brands fa-linkedin text-teal-500 text-xl"></i>
-    <span>LinkedIn</span>
-  </a>
-
-  <a href="https://github.com/yashmittal02" target="_blank"
-    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300">
-    <i class="fa-brands fa-github text-teal-500 text-xl"></i>
-    <span>GitHub</span>
-  </a>
-
-  <a href="https://www.hackerrank.com/profile/yashmittal02" target="_blank"
-    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300">
-    <i class="fa-brands fa-hackerrank text-teal-500 text-xl"></i>
-    <span>HackerRank</span>
-  </a>
-</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-zinc-800 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6 py-14">
-
-      <div class="grid md:grid-cols-3 gap-10">
-
-        <!-- Left -->
-        <div>
-          <h2 class="text-3xl font-bold text-white">
-            Yash <span class="text-teal-500">Mittal</span>
-          </h2>
-
-          <p class="mt-4 text-zinc-400 leading-7 max-w-sm">
-            Software Engineer passionate about building scalable web
-            applications, backend systems, and solving real-world problems
-            through clean and efficient code.
+        <div
+          class="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <p class="text-zinc-500 text-sm">
+            © <span id="yr"></span> Yash Mittal. All Rights Reserved.
           </p>
+
+          <a
+            href="#hero"
+            class="text-sm text-teal-400 hover:text-teal-300 transition"
+          >
+            ↑ Back to Top
+          </a>
         </div>
-
-        <!-- Quick Links -->
-        <div>
-          <h3 class="text-white font-semibold text-lg mb-5">
-            Quick Links
-          </h3>
-
-          <ul class="space-y-3">
-
-            <li><a href="#hero" class="footer-link">Home</a></li>
-
-            <li><a href="#about" class="footer-link">About</a></li>
-
-
-            <li><a href="#Skills" class="footer-link">Skills</a></li>
-
-            <li><a href="#education" class="footer-link">Education</a></li>
-
-            <li><a href="#Experience" class="footer-link">Experience</a></li>
-
-            <li><a href="#project" class="footer-link">Projects</a></li>
-
-            <li><a href="#contact" class="footer-link">Contact</a></li>
-
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-
-          <h3 class="text-white font-semibold text-lg mb-5">
-            Let's Connect
-          </h3>
-
-          <div class="space-y-3">
-
-            <p class="text-zinc-400">
-              📧 yashlink25@gmail.com
-            </p>
-
-            <p class="text-zinc-400">
-              📍 New Delhi, India
-            </p>
-
-          </div>
-
-          <div class="flex gap-4 mt-6">
-
-            <a href="https://github.com/yashmittal02" target="_blank" class="footer-social">
-              GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank" class="footer-social">
-              LinkedIn
-            </a>
-
-            <a href="https://www.hackerrank.com/profile/yashmittal02" target="_blank" class="footer-social">
-              HackerRank
-            </a>
-
-          </div>
-
-        </div>
-
       </div>
+    </footer>
 
-      <div class="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
-
-        <p class="text-zinc-500 text-sm">
-          © <span id="yr"></span> Yash Mittal. All Rights Reserved.
-        </p>
-
-        <a href="#hero" class="text-sm text-teal-400 hover:text-teal-300 transition">
-          ↑ Back to Top
-        </a>
-
-      </div>
-
-    </div>
-  </footer>
-
-<!-- Floating Social Dock -->
-<!-- <div class="social-dock floatingBar">
+    <!-- Floating Social Dock -->
+    <!-- <div class="social-dock floatingBar">
   <a href="https://www.linkedin.com/in/yash-mittal-550462279/" target="_blank">
     <i class="fa-brands fa-linkedin-in"></i>
   </a>
@@ -1694,62 +1880,6 @@ duration-300 reveal">
     <i class="fa-solid fa-file-lines"></i>
   </a>
 </div> -->
-  <script>
-    const words = [
-      "Software Engineer",
-      "Full Stack Developer",
-      "Backend Engineer",
-      "Frontend Engineer",
-      "Data Analyst"
-    ];
-
-    const typing = document.getElementById("typing");
-
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-    function type() {
-
-      const currentWord = words[wordIndex];
-
-      if (!deleting) {
-
-        typing.textContent = currentWord.substring(0, charIndex + 1);
-
-        charIndex++;
-
-        if (charIndex === currentWord.length) {
-
-          deleting = true;
-
-          setTimeout(type, 1500);
-
-          return;
-
-        }
-
-      } else {
-
-        typing.textContent = currentWord.substring(0, charIndex - 1);
-
-        charIndex--;
-
-        if (charIndex === 0) {
-
-          deleting = false;
-
-          wordIndex = (wordIndex + 1) % words.length;
-
-        }
-
-      }
-
-      setTimeout(type, deleting ? 50 : 100);
-    }
-
-    type();
-  </script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
