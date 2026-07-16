@@ -198,7 +198,7 @@ Hosted multiple university-level cultural and academic events.
 
 * LinkedIn: https://www.linkedin.com/in/yash-mittal-550462279/
 * GitHub: https://github.com/yashmittal02
-* HackerRank: https://www.hackerrank.com/profile/yashlink25
+* HackerRank: https://www.hackerrank.com/profile/yashmittal02
 
 ## License
 
