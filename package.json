@@ -1,0 +1,23 @@
+{
+  "name": "yashcv_online",
+  "version": "1.0.0",
+  "description": "A modern, responsive portfolio website showcasing my professional journey, technical skills, projects, internships, certifications, and extracurricular achievements.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashmittal02/online-cv.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yashmittal02/online-cv/issues"
+  },
+  "homepage": "https://github.com/yashmittal02/online-cv#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
