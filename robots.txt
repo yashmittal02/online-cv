@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://yashmittal02.github.io/online-cv/sitemap.xml

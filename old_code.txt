@@ -1,163 +1,35 @@
 <!doctype html>
 <html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
   <head>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Yash Mittal",
-        "url": "https://yashmittal02.github.io/online-cv/",
-        "jobTitle": "Software Engineer",
-        "alumniOf": "Amity University Haryana",
-        "sameAs": [
-          "https://github.com/yashmittal02",
-          "https://www.linkedin.com/in/yash-mittal-550462279/",
-          "https://www.hackerrank.com/profile/yashmittal02"
-        ],
-        "knowsAbout": [
-          "Java",
-          "React",
-          "Next.js",
-          "Spring Boot",
-          "MySQL",
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "Tailwind CSS"
-        ]
-      }
-    </script>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="canonical" href="https://yashmittal02.github.io/online-cv/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Official portfolio of Yash Mittal, a Computer Science student and Software Engineer specializing in Java, React, Next.js, MySQL, Spring Boot, full-stack development, and modern web applications."
+      content="Yash Mittal - Software Development Engineer and Frontend Developer. Fast, clean and accessible digital products."
     />
     <meta
       name="keywords"
-      content="
-  Yash Mittal,
-  Yash Mittal Portfolio,
-  Yash Mittal Software Engineer,
-  Software Engineer,
-  Software Developer,
-  Full Stack Developer,
-  Frontend Developer,
-  Backend Developer,
-  Web Developer,
-  Java Developer,
-  React Developer,
-  Next.js Developer,
-  JavaScript Developer,
-  HTML Developer,
-  CSS Developer,
-  Tailwind CSS,
-  Redux Toolkit,
-  Spring Boot,
-  REST API,
-  MySQL,
-  SQL,
-  Database Management,
-  Object Oriented Programming,
-  OOP,
-  Data Structures,
-  Algorithms,
-  DSA,
-  Computer Science,
-  Computer Science Student,
-  CSE Student,
-  BTech CSE,
-  Amity University Haryana,
-  Software Development,
-  Responsive Web Design,
-  Modern Web Development,
-  Portfolio Website,
-  Personal Portfolio,
-  Git,
-  GitHub,
-  VS Code,
-  Full Stack Projects,
-  Frontend Projects,
-  Java Projects,
-  React Projects,
-  Next.js Projects,
-  Internship Portfolio,
-  Software Engineering,
-  Problem Solving,
-  Programming,
-  Java,
-  JavaScript,
-  HTML,
-  CSS,
-  C++,
-  C,
-  Python,
-  Web Applications,
-  UI Development,
-  User Interface,
-  Web Design,
-  Coding Portfolio,
-  Developer Portfolio,
-  India Developer,
-  Gurgaon Developer,
-  Gurugram Developer,
-  Software Engineer India,
-  Entry Level Software Engineer,
-  Fresher Software Engineer,
-  Student Developer,
-  Portfolio India
-"
+      content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js, CSS, Portfolio website, responsive design, frontend development, web development, user experience, user interface, personal website, software engineer, web designer"
     />
     <meta name="author" content="Yash Mittal" />
-    <meta property="og:type" content="website" />
-
     <meta
       property="og:title"
-      content="Yash Mittal | Software Engineer Portfolio"
+      content="Yash Mittal - Software Development Engineer"
     />
-
     <meta
       property="og:description"
-      content="Explore the portfolio of Yash Mittal showcasing software engineering projects, internships, technical skills, and full-stack development work."
+      content="I design and build digital products that people love to use."
     />
-
-    <meta
-      property="og:image"
-      content="https://yashmittal02.github.io/online-cv/preview.png"
-    />
-
-    <meta
-      property="og:url"
-      content="https://yashmittal02.github.io/online-cv/"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <meta
-      name="twitter:title"
-      content="Yash Mittal | Software Engineer Portfolio"
-    />
-
-    <meta
-      name="twitter:description"
-      content="Software Engineer specializing in Java, React, Next.js and Full Stack Development."
-    />
-
-    <meta
-      name="twitter:image"
-      content="https://yashmittal02.github.io/online-cv/preview.png"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0d9488" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://Yash Mittal.dev" />
     <title>
-      Yash Mittal | Software Engineer | Java Developer | React & Next.js
-      Portfolio
+      Yash Mittal - Software Development Engineer &amp; Software Engineer
     </title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -525,6 +397,21 @@
                   class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm"
                 >
                   View projects
+                  <svg
+                    reveal
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </a>
                 <a
                   href="#contact"
@@ -609,7 +496,7 @@
               >
                 <div class="flex justify-center gap-4">
                   <div
-                    class="max-w-sm mx-auto mt-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-5 shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)] hover:border-teal-500/60"
+                    class="max-w-sm mx-auto mt-6 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-5 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)] hover:border-teal-500/60"
                   >
                     <h3
                       class="text-sm font-semibold text-zinc-900 dark:text-white mb-5 text-center uppercase tracking-wider"
@@ -767,376 +654,25 @@
 
       <!-- ═══ Skills ═══ -->
       <section id="Skills" class="skills-section">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
-          <div class="skills-heading reveal">
-            <p class="skills-subtitle reveal">I WORK ON THESE</p>
+        <div class="skills-heading reveal">
+          <p class="skills-subtitle reveal">I WORK ON THESE</p>
 
-            <h2 class="skills-title">Technical Skills</h2>
-          </div>
-          <!-- Programming Languages -->
-
-          <div class="mx-auto max-w-7xl mb-16">
-            <div class="flex items-center gap-4 mb-6">
-              <span
-                class="rounded-full border border-teal-400/40 bg-teal-500/10 px-6 py-2.5 text-base font-semibold uppercase tracking-wider text-teal-400"
-              >
-                Programming Languages
-              </span>
-
-              <div class="h-px flex-1 bg-neutral-700"></div>
-            </div>
-
-            <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
-            >
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">Java</h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Object-oriented language for building scalable and
-                  platform-independent applications.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  JavaScript
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Language used to create dynamic, interactive, and modern web
-                  applications.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  C / C++
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  High-performance languages used for system programming and
-                  efficient software development.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Python
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Beginner-friendly language used for automation, scripting, and
-                  problem solving.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Frontend -->
-
-          <div class="mx-auto max-w-7xl mb-16">
-            <div class="flex items-center justify-end gap-4 mb-6">
-              <div class="h-px flex-1 bg-neutral-700"></div>
-              <span
-                class="rounded-full border border-teal-400/40 bg-teal-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-teal-400"
-              >
-                Frontend Development
-              </span>
-            </div>
-
-            <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
-            >
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  React.js
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  JavaScript library for building fast, component-based user
-                  interfaces.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Next.js
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  React framework for production-ready and server-rendered
-                  applications.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">HTML5</h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Standard markup language used to structure web pages.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">CSS3</h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Styling language used to design responsive and attractive
-                  websites.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Tailwind CSS
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Utility-first CSS framework for rapidly building modern
-                  interfaces.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Redux Toolkit
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Simplifies state management for modern React applications.
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Database -->
-
-          <div class="mx-auto max-w-7xl mb-16">
-            <div class="flex items-center gap-4 mb-6">
-              <span
-                class="rounded-full border border-teal-400/40 bg-teal-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-teal-400"
-              >
-                Database
-              </span>
-
-              <div class="h-px flex-1 bg-neutral-700"></div>
-            </div>
-
-            <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
-            >
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">MySQL</h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Relational database management system used for storing,
-                  organizing, and managing structured data efficiently.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  CRUD Operations
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Create, Read, Update, and Delete operations used to interact
-                  with databases in web applications.
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Tools -->
-
-          <div class="mx-auto max-w-7xl mb-16">
-            <div class="flex items-center justify-end gap-4 mb-6">
-              <div class="flex-1 h-px bg-neutral-700"></div>
-
-              <span
-                class="rounded-full border border-teal-400/40 bg-teal-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-teal-400"
-              >
-                Tools
-              </span>
-            </div>
-
-            <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
-            >
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">Git</h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Version control system used to track changes and collaborate
-                  on software projects.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  GitHub
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Platform for hosting repositories, managing versions, and
-                  collaborating on code.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  VS Code
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Lightweight and powerful code editor with support for modern
-                  web development.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  MS Office
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Productivity suite including Word, Excel, PowerPoint, and
-                  other essential office tools.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Core Concepts -->
-
-          <div class="mx-auto max-w-7xl mb-16">
-            <div class="flex items-center gap-4 mb-6">
-              <span
-                class="rounded-full border border-teal-400/40 bg-teal-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-wider text-teal-400"
-              >
-                Core Concepts
-              </span>
-
-              <div class="h-px flex-1 bg-neutral-700"></div>
-            </div>
-
-            <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
-            >
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Data Structures & Algorithms
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Efficient techniques for organizing data and solving
-                  computational problems.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Object-Oriented Programming
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Programming paradigm based on classes, objects, inheritance,
-                  encapsulation, and polymorphism.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Database Management Systems
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Concepts of storing, managing, securing, and retrieving
-                  structured data efficiently.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Operating Systems
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Understanding processes, memory management, scheduling, file
-                  systems, and resource allocation.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Computer Networks
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Fundamentals of networking, communication protocols, routing,
-                  and internet architecture.
-                </p>
-              </div>
-
-              <div
-                class="w-full rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20"
-              >
-                <h2 class="text-center text-3xl font-bold text-white">
-                  Computer Forensics
-                </h2>
-
-                <p class="mt-4 text-center text-gray-400 leading-7">
-                  Investigation, preservation, and analysis of digital evidence
-                  for cybersecurity and legal purposes.
-                </p>
-              </div>
-            </div>
-          </div>
+          <h2 class="skills-title">Technical Skills</h2>
         </div>
+        <button id="prevBtn" class="nav-arrow left-arrow">❮</button>
+
+        <div class="card-container reveal d1">
+          <div class="skill-card prev reveal d4"></div>
+
+          <div class="skill-card active reveal d1"></div>
+
+          <div class="skill-card next reveal d4"></div>
+        </div>
+
+        <button id="nextBtn" class="nav-arrow right-arrow reveal d2">❯</button>
       </section>
       <!-- ═══ project ═══ -->
-      <section id="project" class="py-6">
+      <section id="project" class="py-24">
         <div class="max-w-6xl mx-auto px-6">
           <div
             class="flex flex-col sm:flex-row sm:items-end justi fy-between gap-4 mb-14"
@@ -1153,12 +689,17 @@
                 My Projects
               </h2>
             </div>
+            <a
+              href="projects.html"
+              class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl"
+              >View all projects →</a
+            >
           </div>
 
           <div class="grid md:grid-cols-2 gap-6">
             <!-- Featured Project -->
             <article
-              class="card-h reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent md:row-span-2"
+              class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent md:row-span-2"
             >
               <div
                 class="pf w-full h-64 md:h-80 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-4"
@@ -1375,7 +916,7 @@
           <div class="grid md:grid-cols-3 gap-6">
             <!-- B.Tech -->
             <div
-              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <span class="text-accent text-sm font-medium"
                 >2023 - Present</span
@@ -1400,7 +941,7 @@
 
             <!-- Class 12 -->
             <div
-              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <span class="text-accent text-sm font-medium">2022 - 2023</span>
 
@@ -1421,7 +962,7 @@
 
             <!-- Class 10 -->
             <div
-              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal d1 bg-white dark:bg-zinc-900 rounded-2xl p-7 shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <span class="text-accent text-sm font-medium">2020 - 2021</span>
 
@@ -1463,7 +1004,7 @@
 
           <div class="space-y-8">
             <article
-              class="reveal d3 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-3 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+              class="reveal d3 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
             >
               <div
                 class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8"
@@ -1504,7 +1045,7 @@
 
             <!-- Experience 2 -->
             <article
-              class="reveal d1 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-3 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+              class="reveal d1 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
             >
               <div
                 class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8"
@@ -1545,7 +1086,7 @@
 
             <!-- Experience 3 -->
             <article
-              class="reveal d2 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-3 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+              class="reveal d2 flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:border-accent hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
             >
               <div
                 class="w-full md:w-72 shrink-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center p-8"
@@ -1606,7 +1147,7 @@
           <div class="space-y-8">
             <!-- Certificate 1 -->
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
@@ -1636,7 +1177,7 @@
 
             <!-- Certificate 2 -->
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
@@ -1669,7 +1210,7 @@
             <!-- Certificate 3 -->
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
@@ -1700,7 +1241,7 @@
             <!-- Certificate 4-->
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
@@ -1757,7 +1298,7 @@
           <div class="grid md:grid-cols-3 gap-6">
             <!-- Card 1 -->
             <article
-              class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+              class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
             >
               <div
                 class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]"
@@ -1800,7 +1341,7 @@
 
             <!-- Card 2 -->
             <article
-              class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+              class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
             >
               <div
                 class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]"
@@ -1842,7 +1383,7 @@
 
             <!-- Card 3 -->
             <article
-              class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
+              class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]"
             >
               <div
                 class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]"
@@ -1883,7 +1424,7 @@
             <!-- Card 4 (Founder - Baithak)
   
           <article
-            class="reveal d4 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
+            class="reveal d4 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_35px_rgba(13,148,136,0.25)]">
             <div class="w-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 p-3 min-h-[250px]">
               <img src="c3.png" alt="EmCee"
                 class="max-w-full max-h-[240px] object-contain cursor-pointer transition-all duration-300 hover:scale-105"
@@ -1933,7 +1474,7 @@
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Skill Card -->
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🎤</div>
 
@@ -1950,7 +1491,7 @@
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🤝</div>
 
@@ -1967,7 +1508,7 @@
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
             >
               <div class="text-5xl mb-5">💡</div>
 
@@ -1984,7 +1525,7 @@
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🗣️</div>
 
@@ -2001,7 +1542,7 @@
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
             >
               <div class="text-5xl mb-5">⚡</div>
 
@@ -2018,7 +1559,7 @@
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-2 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🎯</div>
 
@@ -2118,11 +1659,11 @@
 
               <div class="mt-10">
                 <a
-                  href="Yash_Mittal_ResumeF.pdf"
+                  href="YashMittalResumeN.pdf"
                   target="_blank"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
                 >
-                  View Resume
+                  Download Resume
                 </a>
               </div>
             </div>
@@ -2189,7 +1730,7 @@
                   Contact Me
                 </a>
 
-                <!-- <a href="Yash_Mittal_ResumeF.pdf" target="_blank"
+                <!-- <a href="YashMittalResumeN.pdf" target="_blank"
                 class="px-6 py-3 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-black transition">
                 Resume
               </a> -->
@@ -2340,7 +1881,7 @@
     <i class="fa-brands fa-hackerrank"></i>
   </a>
 
-  <a href="Yash_Mittal_ResumeF.pdf" target="_blank">
+  <a href="YashMittalResumeN.pdf" target="_blank">
     <i class="fa-solid fa-file-lines"></i>
   </a>
 </div> -->

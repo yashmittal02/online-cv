@@ -272,7 +272,7 @@ body::before {
 
 .skills-heading {
   text-align: center;
-  margin-bottom: 60px;
+  margin: 50px auto;
 }
 
 .skills-subtitle {
@@ -310,7 +310,7 @@ body::before {
 
   overflow: hidden;
 
-  padding: 120px 20px;
+  padding: 20px 20px;
 }
 
 /* ===========================
