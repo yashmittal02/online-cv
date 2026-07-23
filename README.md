@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my professional journey, technical skills, projects, internships, certifications, and extracurricular achievements.
 
-[## Live Preview](https://yashmittal02.github.io/online-cv/)
+## [Live Preview](https://yashmittal02.github.io/online-cv/)
 
 ## About
 
