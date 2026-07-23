@@ -2,9 +2,7 @@
 
 A modern, responsive portfolio website showcasing my professional journey, technical skills, projects, internships, certifications, and extracurricular achievements.
 
-## Live Preview
-
-Visit the portfolio website to explore my work, experience, and technical expertise.
+[## Live Preview](https://yashmittal02.github.io/online-cv/)
 
 ## About
 
@@ -42,7 +40,7 @@ This portfolio serves as my online CV and professional profile. It highlights my
 * Responsive Web Design
 * UI/UX Design Principles
 
-## Projects Featured
+## Featured Projects
 
 ### myKart – Hyperlocal Platform
 
