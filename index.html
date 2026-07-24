@@ -228,12 +228,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <body
-    class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased"
+    class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-500"
   >
     <!-- ═══ NAV ═══ -->
     <header
-      class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-      :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''"
+      class="fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-all duration-500 border-b"
+      :class="sc
+    ? 'bg-white/85 dark:bg-zinc-950/85 border-zinc-200 dark:border-zinc-800 shadow-lg shadow-black/5'
+    : 'bg-white/60 dark:bg-zinc-950/60 border-transparent'"
     >
       <nav
         class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
@@ -490,7 +492,7 @@
       <!-- ═══ HERO ═══ -->
       <section
         id="hero"
-        class="relative min-h-screen flex items-center pt-16 overflow-hidden"
+        class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-zinc-50 dark:bg-zinc-900/40"
       >
         <div
           class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
@@ -515,9 +517,14 @@
                 Hi, I'm <span class="text-accent">Yash Mittal</span>
               </h1>
               <h2
-                class="reveal text-2xl md:text-3xl font-semibold text-zinc-300"
+                class="reveal text-2xl md:text-3xl font-semibold text-zinc-500 dark:text-zinc-50"
               >
-                I am a <span id="typing"></span>.
+                I am a
+                <span
+                  class="text-zinc-600 dark:text-zinc-400"
+                  id="typing"
+                ></span
+                >.
               </h2>
               <p
                 class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10"
@@ -580,11 +587,7 @@
               <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div class="pf w-full h-full rounded-3xl">
                   <img
-                    style="
-                      :hover {
-                        box-shadow: 0 0 20px rgba(13, 148, 136, 0.5);
-                      }
-                    "
+                    class="hero-pic"
                     src="assets/selftpic1.png"
                     alt="Yash Mittal - Software Development Engineer"
                     loading="eager"
@@ -778,13 +781,19 @@
       </section>
 
       <!-- ═══ Skills ═══ -->
-      <section id="Skills" class="skills-section">
+      <section
+        id="Skills"
+        class="skills-section bg-zinc-50 dark:bg-zinc-900/40"
+      >
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
           <div class="skills-heading reveal">
             <p class="skills-subtitle reveal">I WORK ON THESE</p>
 
-            <h2 class="skills-title">Technical Skills</h2>
+            <h2 class="skills-title text-black dark:text-white">
+              Technical Skills
+            </h2>
           </div>
+
           <!-- Programming Languages -->
 
           <div class="mx-auto max-w-7xl mb-16">
@@ -799,46 +808,62 @@
             </div>
 
             <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
+              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-zinc-200 dark:border-neutral-700 p-6"
             >
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-java-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-java-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">Java</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  Java
+                </h2>
               </div>
 
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-javascript-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-javascript-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">JavaScript</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  JavaScript
+                </h2>
               </div>
 
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-cplusplus-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-cplusplus-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">C / C++</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  C / C++
+                </h2>
               </div>
 
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-python-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-python-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">Python</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  Python
+                </h2>
               </div>
             </div>
           </div>
@@ -857,72 +882,94 @@
             </div>
 
             <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
+              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-zinc-200 dark:border-neutral-700 p-6"
             >
               <!-- React -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-react-original text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-react-original text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">React.js</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  React.js
+                </h2>
               </div>
 
               <!-- Next.js -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-nextjs-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-nextjs-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">Next.js</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  Next.js
+                </h2>
               </div>
 
               <!-- HTML -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-html5-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-html5-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">HTML5</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  HTML5
+                </h2>
               </div>
 
               <!-- CSS -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-css3-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-css3-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">CSS3</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  CSS3
+                </h2>
               </div>
 
               <!-- Tailwind CSS -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-tailwindcss-original text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-tailwindcss-original text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">Tailwind CSS</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  Tailwind CSS
+                </h2>
               </div>
 
               <!-- Redux Toolkit -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-redux-original text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-redux-original text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
                   Redux Toolkit
                 </h2>
               </div>
@@ -942,28 +989,34 @@
             </div>
 
             <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
+              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-zinc-200 dark:border-neutral-700 p-6"
             >
               <!-- MySQL -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-mysql-original text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-mysql-original text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">MySQL</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  MySQL
+                </h2>
               </div>
 
               <!-- CRUD Operations -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-database text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-database text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
                   CRUD Operations
                 </h2>
               </div>
@@ -983,50 +1036,66 @@
             </div>
 
             <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
+              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-zinc-200 dark:border-neutral-700 p-6"
             >
               <!-- Git -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-git-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-git-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">Git</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  Git
+                </h2>
               </div>
 
               <!-- GitHub -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-github-original text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-github-original text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">GitHub</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  GitHub
+                </h2>
               </div>
 
               <!-- VS Code -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="devicon-vscode-plain text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="devicon-vscode-plain text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">VS Code</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  VS Code
+                </h2>
               </div>
 
               <!-- MS Office -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-file-word text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-file-word text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white">MS Office</h2>
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white"
+                >
+                  MS Office
+                </h2>
               </div>
             </div>
           </div>
@@ -1045,82 +1114,94 @@
             </div>
 
             <div
-              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-neutral-700 p-6"
+              class="mx-auto w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 rounded-2xl border border-zinc-200 dark:border-neutral-700 p-6"
             >
               <!-- DSA -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-code-branch text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-code-branch text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white text-center">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white text-center"
+                >
                   Data Structures & Algorithms
                 </h2>
               </div>
 
               <!-- OOP -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-cubes text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-cubes text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white text-center">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white text-center"
+                >
                   Object-Oriented Programming
                 </h2>
               </div>
 
               <!-- DBMS -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-database text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-database text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white text-center">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white text-center"
+                >
                   Database Management Systems
                 </h2>
               </div>
 
               <!-- Operating Systems -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-desktop text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-desktop text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white text-center">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white text-center"
+                >
                   Operating Systems
                 </h2>
               </div>
 
               <!-- Computer Networks -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-network-wired text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-network-wired text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white text-center">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white text-center"
+                >
                   Computer Networks
                 </h2>
               </div>
 
               <!-- Computer Forensics -->
               <div
-                class="group w-full h-72 rounded-2xl border border-neutral-700 bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
+                class="group w-full h-72 rounded-2xl border border-zinc-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/70 backdrop-blur-md p-6 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:border-teal-400 hover:shadow-teal-500/20 flex flex-col items-center justify-center"
               >
                 <i
-                  class="fa-solid fa-user-secret text-7xl text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
+                  class="fa-solid fa-user-secret text-7xl text-zinc-900 dark:text-white transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110"
                 ></i>
 
-                <h2 class="mt-6 text-3xl font-bold text-white text-center">
+                <h2
+                  class="mt-6 text-3xl font-bold text-zinc-900 dark:text-white text-center"
+                >
                   Computer Forensics
                 </h2>
               </div>
@@ -1129,10 +1210,10 @@
         </div>
       </section>
       <!-- ═══ project ═══ -->
-      <section id="project" class="py-6">
+      <section id="project" class="py-6 bg-zinc-50 dark:bg-zinc-900/40">
         <div class="max-w-6xl mx-auto px-6">
           <div
-            class="flex flex-col sm:flex-row sm:items-end justi fy-between gap-4 mb-14"
+            class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
           >
             <div>
               <p
@@ -1349,7 +1430,7 @@
       <!-- ═══ EDUCATION ═══ -->
       <section
         id="education"
-        class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300"
+        class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900/40 dark:text-white transition-colors duration-300"
       >
         <div class="max-w-6xl mx-auto px-6">
           <div class="mb-14">
@@ -1582,7 +1663,10 @@
 
       <!-- ═══ CERTIFICATIONS ═══ -->
 
-      <section id="certifications" class="py-24 bg-zinc-950 text-white">
+      <section
+        id="certifications"
+        class="py-24 bg-zinc-50 text-white dark:bg-zinc-900/40"
+      >
         <div class="max-w-6xl mx-auto px-6">
           <!-- Heading -->
           <div class="text-center mb-16">
@@ -1590,7 +1674,9 @@
               My Achievements
             </p>
 
-            <h2 class="text-5xl font-bold mt-4">Certifications</h2>
+            <h2 class="text-5xl text-black dark:text-white font-bold mt-4">
+              Certifications
+            </h2>
 
             <div class="w-24 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
           </div>
@@ -1599,17 +1685,19 @@
           <div class="space-y-8">
             <!-- Certificate 1 -->
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
               >
-                🏆
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                />
               </div>
 
               <div class="flex-1 text-center md:text-left">
                 <h3
-                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                  class="text-2xl font-bold text-black dark:text-white group-hover:text-teal-500 transition"
                 >
                   Programming, Data Structures and Algorithms Using Python
                 </h3>
@@ -1629,7 +1717,7 @@
 
             <!-- Certificate 2 -->
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
@@ -1639,7 +1727,7 @@
 
               <div class="flex-1 text-center md:text-left">
                 <h3
-                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                  class="text-2xl font-bold text-black dark:text-white group-hover:text-teal-500 transition"
                 >
                   Artificial Intelligence (AI)
                 </h3>
@@ -1662,17 +1750,19 @@
             <!-- Certificate 3 -->
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
               >
-                JS
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                />
               </div>
 
               <div class="flex-1 text-center md:text-left">
                 <h3
-                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                  class="text-2xl text-black dark:text-white font-bold group-hover:text-teal-500 transition"
                 >
                   JavaScript (Basic)
                 </h3>
@@ -1693,17 +1783,19 @@
             <!-- Certificate 4-->
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(13,148,136,0.35)] hover:border-teal-500/60 cursor-pointer"
             >
               <div
                 class="w-20 h-20 rounded-2xl bg-teal-500/10 flex items-center justify-center text-4xl"
               >
-                🐬
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
+                />
               </div>
 
               <div class="flex-1 text-center md:text-left">
                 <h3
-                  class="text-2xl font-bold group-hover:text-teal-500 transition"
+                  class="text-2xl text-black dark:text-white font-bold group-hover:text-teal-500 transition"
                 >
                   MySQL (Intermediate)
                 </h3>
@@ -1727,7 +1819,7 @@
       <!-- ═══ EXTRA-CURRICULAR ═══ -->
       <section
         id="extra"
-        class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-300"
+        class="py-24 bg-zinc-50 text-zinc-900 dark:bg-zinc-900/40 dark:text-white transition-colors duration-300"
       >
         <div class="max-w-6xl mx-auto px-6">
           <div
@@ -1909,7 +2001,10 @@
 
       <!-- ═══ SOFT SKILLS ═══ -->
 
-      <section id="softskills" class="py-24 bg-zinc-950 text-white">
+      <section
+        id="softskills"
+        class="py-24 bg-zinc-50 text-white dark:bg-zinc-900/40"
+      >
         <div class="max-w-7xl mx-auto px-6">
           <!-- Heading -->
           <div class="text-center mb-16">
@@ -1917,7 +2012,9 @@
               Beyond Technical Skills
             </p>
 
-            <h2 class="text-5xl font-bold mt-4">Soft Skills</h2>
+            <h2 class="text-5xl font-bold mt-4 text-black dark:text-white">
+              Soft Skills
+            </h2>
 
             <div class="w-24 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
           </div>
@@ -1926,102 +2023,102 @@
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Skill Card -->
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🎤</div>
 
               <h3
-                class="text-2xl font-bold group-hover:text-teal-500 transition"
+                class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-500 transition"
               >
                 Public Speaking
               </h3>
 
-              <p class="text-zinc-400 mt-3 leading-relaxed">
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
                 Confident speaker with experience hosting events, directing
                 performances and addressing large audiences.
               </p>
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🤝</div>
 
               <h3
-                class="text-2xl font-bold group-hover:text-teal-500 transition"
+                class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-500 transition"
               >
                 Team Leadership
               </h3>
 
-              <p class="text-zinc-400 mt-3 leading-relaxed">
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
                 Led teams during dramatics productions and collaborative
                 technical projects.
               </p>
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
             >
               <div class="text-5xl mb-5">💡</div>
 
               <h3
-                class="text-2xl font-bold group-hover:text-teal-500 transition"
+                class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-500 transition"
               >
                 Problem Solving
               </h3>
 
-              <p class="text-zinc-400 mt-3 leading-relaxed">
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
                 Analytical thinker capable of breaking complex challenges into
                 practical solutions.
               </p>
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🗣️</div>
 
               <h3
-                class="text-2xl font-bold group-hover:text-teal-500 transition"
+                class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-500 transition"
               >
                 Communication
               </h3>
 
-              <p class="text-zinc-400 mt-3 leading-relaxed">
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
                 Effective communicator skilled in presenting technical and
                 non-technical ideas clearly.
               </p>
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
             >
               <div class="text-5xl mb-5">⚡</div>
 
               <h3
-                class="text-2xl font-bold group-hover:text-teal-500 transition"
+                class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-500 transition"
               >
                 Adaptability
               </h3>
 
-              <p class="text-zinc-400 mt-3 leading-relaxed">
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
                 Quick learner who adapts to new technologies, environments and
                 responsibilities.
               </p>
             </div>
 
             <div
-              class="reveal group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
+              class="reveal group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-3 transition-all duration-300"
             >
               <div class="text-5xl mb-5">🎯</div>
 
               <h3
-                class="text-2xl font-bold group-hover:text-teal-500 transition"
+                class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-500 transition"
               >
                 Time Management
               </h3>
 
-              <p class="text-zinc-400 mt-3 leading-relaxed">
+              <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
                 Balanced academics, internships, projects and extracurricular
                 leadership efficiently.
               </p>
@@ -2050,7 +2147,10 @@
       </div>
 
       <!-- ═══ CONTACT ═══ -->
-      <section id="contact" class="py-24 bg-zinc-950 text-white">
+      <section
+        id="contact"
+        class="py-24 bg-zinc-50 dark:bg-zinc-900/40 text-zinc-900 dark:text-white"
+      >
         <div class="max-w-7xl mx-auto px-6">
           <!-- Heading -->
           <div class="text-center mb-16">
@@ -2058,10 +2158,14 @@
               Let's Connect
             </p>
 
-            <h2 class="text-5xl font-bold mt-4 reveal">Let's Work Together</h2>
+            <h2
+              class="text-5xl font-bold mt-4 reveal text-zinc-900 dark:text-white"
+            >
+              Let's Work Together
+            </h2>
 
             <p
-              class="text-zinc-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed reveal"
+              class="text-zinc-600 dark:text-zinc-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed reveal"
             >
               Looking for a Software Engineer, Backend Developer, or Full Stack
               Developer? I enjoy building scalable applications and solving
@@ -2073,13 +2177,15 @@
 
           <!-- Main Grid -->
           <div class="grid lg:grid-cols-2 gap-10 reveal">
-            <!-- Left Side -->
+            <!-- Left Card -->
             <div
-              class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] transition-all duration-300 reveal"
+              class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] transition-all duration-300"
             >
-              <h3 class="text-3xl font-bold mb-8">Available For</h3>
+              <h3 class="text-3xl font-bold text-zinc-900 dark:text-white mb-8">
+                Available For
+              </h3>
 
-              <div class="space-y-4">
+              <div class="space-y-4 text-zinc-700 dark:text-zinc-300">
                 <div class="flex items-center gap-4">
                   <span class="text-teal-500 text-xl">✓</span>
                   <span>Web Development</span>
@@ -2099,10 +2205,12 @@
                   <span class="text-teal-500 text-xl">✓</span>
                   <span>Freelance Development Projects</span>
                 </div>
+
                 <div class="flex items-center gap-4">
                   <span class="text-teal-500 text-xl">✓</span>
                   <span>Front-End Development</span>
                 </div>
+
                 <div class="flex items-center gap-4">
                   <span class="text-teal-500 text-xl">✓</span>
                   <span>Full Stack Development</span>
@@ -2113,21 +2221,22 @@
                 <a
                   href="assets/Yash_Mittal_ResumeF.pdf"
                   target="_blank"
-                  class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+                  class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-teal-500 text-white dark:text-black font-semibold hover:scale-105 transition"
                 >
                   View Resume
                 </a>
               </div>
             </div>
 
-            <!-- Right Side -->
+            <!-- Right Card -->
             <div
-              class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-teal-500 transition duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] transition-all duration-300 reveal"
+              class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-md hover:shadow-xl hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] transition-all duration-300"
             >
-              <h3 class="text-3xl font-bold mb-8">Contact Information</h3>
+              <h3 class="text-3xl font-bold text-zinc-900 dark:text-white mb-8">
+                Contact Information
+              </h3>
 
               <div class="space-y-8">
-                <!-- Email -->
                 <div>
                   <p
                     class="text-teal-500 uppercase text-sm tracking-wider mb-2"
@@ -2137,13 +2246,12 @@
 
                   <a
                     href="mailto:yashlink25@gmail.com"
-                    class="text-lg hover:text-teal-500 transition"
+                    class="text-lg text-zinc-700 dark:text-zinc-300 hover:text-teal-500 transition"
                   >
                     yashlink25@gmail.com
                   </a>
                 </div>
 
-                <!-- Phone -->
                 <div>
                   <p
                     class="text-teal-500 uppercase text-sm tracking-wider mb-2"
@@ -2153,13 +2261,12 @@
 
                   <a
                     href="tel:+917988834518"
-                    class="text-lg hover:text-teal-500 transition"
+                    class="text-lg text-zinc-700 dark:text-zinc-300 hover:text-teal-500 transition"
                   >
                     +91 7988834518
                   </a>
                 </div>
 
-                <!-- Location -->
                 <div>
                   <p
                     class="text-teal-500 uppercase text-sm tracking-wider mb-2"
@@ -2167,38 +2274,34 @@
                     Location
                   </p>
 
-                  <p class="text-lg">
+                  <p class="text-lg text-zinc-700 dark:text-zinc-300">
                     India • Open to Remote & Relocation Opportunities
                   </p>
                 </div>
               </div>
 
-              <!-- Buttons -->
               <div class="flex flex-wrap gap-5 mt-10">
                 <a
                   href="mailto:yashlink25@gmail.com"
-                  class="px-6 py-3 rounded-xl bg-teal-500 text-black font-semibold hover:scale-105 transition"
+                  class="px-6 py-3 rounded-xl bg-teal-500 text-white dark:text-black font-semibold hover:scale-105 transition"
                 >
                   Contact Me
                 </a>
-
-                <!-- <a href="assets/Yash_Mittal_ResumeF.pdf" target="_blank"
-                class="px-6 py-3 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-black transition">
-                Resume
-              </a> -->
               </div>
             </div>
           </div>
 
           <!-- Social Links -->
           <div class="mt-16 text-center">
-            <h3 class="text-2xl font-bold mb-8">Connect With Me</h3>
+            <h3 class="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
+              Connect With Me
+            </h3>
 
             <div class="flex flex-wrap justify-center gap-6">
               <a
                 href="https://www.linkedin.com/in/yash-mittal-550462279/"
                 target="_blank"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-teal-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 <i class="fa-brands fa-linkedin text-teal-500 text-xl"></i>
                 <span>LinkedIn</span>
@@ -2207,7 +2310,7 @@
               <a
                 href="https://github.com/yashmittal02"
                 target="_blank"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-teal-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 <i class="fa-brands fa-github text-teal-500 text-xl"></i>
                 <span>GitHub</span>
@@ -2216,7 +2319,7 @@
               <a
                 href="https://www.hackerrank.com/profile/yashmittal02"
                 target="_blank"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-teal-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(13,148,136,0.25)] transition-all duration-300"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-teal-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 <i class="fa-brands fa-hackerrank text-teal-500 text-xl"></i>
                 <span>HackerRank</span>
@@ -2227,16 +2330,18 @@
       </section>
     </main>
 
-    <footer class="border-t border-zinc-800 bg-zinc-950">
+    <footer
+      class="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950"
+    >
       <div class="max-w-7xl mx-auto px-6 py-14">
         <div class="grid md:grid-cols-3 gap-10">
           <!-- Left -->
           <div>
-            <h2 class="text-3xl font-bold text-white">
+            <h2 class="text-3xl font-bold text-zinc-900 dark:text-white">
               Yash <span class="text-teal-500">Mittal</span>
             </h2>
 
-            <p class="mt-4 text-zinc-400 leading-7 max-w-sm">
+            <p class="mt-4 text-zinc-600 dark:text-zinc-400 leading-7 max-w-sm">
               Software Engineer passionate about building scalable web
               applications, backend systems, and solving real-world problems
               through clean and efficient code.
@@ -2245,36 +2350,42 @@
 
           <!-- Quick Links -->
           <div>
-            <h3 class="text-white font-semibold text-lg mb-5">Quick Links</h3>
+            <h3
+              class="text-zinc-900 dark:text-white font-semibold text-lg mb-5"
+            >
+              Quick Links
+            </h3>
 
             <ul class="space-y-3">
               <li><a href="#hero" class="footer-link">Home</a></li>
-
               <li><a href="#about" class="footer-link">About</a></li>
-
               <li><a href="#Skills" class="footer-link">Skills</a></li>
-
               <li><a href="#education" class="footer-link">Education</a></li>
-
               <li><a href="#Experience" class="footer-link">Experience</a></li>
-
               <li><a href="#project" class="footer-link">Projects</a></li>
-
               <li><a href="#contact" class="footer-link">Contact</a></li>
             </ul>
           </div>
 
           <!-- Contact -->
           <div>
-            <h3 class="text-white font-semibold text-lg mb-5">Let's Connect</h3>
+            <h3
+              class="text-zinc-900 dark:text-white font-semibold text-lg mb-5"
+            >
+              Let's Connect
+            </h3>
 
             <div class="space-y-3">
-              <p class="text-zinc-400">📧 yashlink25@gmail.com</p>
+              <p class="text-zinc-600 dark:text-zinc-400">
+                📧 yashlink25@gmail.com
+              </p>
 
-              <p class="text-zinc-400">📍 New Delhi, India</p>
+              <p class="text-zinc-600 dark:text-zinc-400">
+                📍 New Delhi, India
+              </p>
             </div>
 
-            <div class="flex gap-4 mt-6">
+            <div class="flex flex-wrap gap-4 mt-6">
               <a
                 href="https://github.com/yashmittal02"
                 target="_blank"
@@ -2303,15 +2414,15 @@
         </div>
 
         <div
-          class="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4"
+          class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <p class="text-zinc-500 text-sm">
+          <p class="text-zinc-500 dark:text-zinc-500 text-sm">
             © <span id="yr"></span> Yash Mittal. All Rights Reserved.
           </p>
 
           <a
             href="#hero"
-            class="text-sm text-teal-400 hover:text-teal-300 transition"
+            class="text-sm text-teal-500 hover:text-teal-600 dark:hover:text-teal-300 transition"
           >
             ↑ Back to Top
           </a>

@@ -14,14 +14,17 @@
 
 .footer-social {
   padding: 10px 16px;
-
   border: 1px solid #27272a;
-
   border-radius: 999px;
-
   color: #d4d4d8;
-
   transition: 0.3s;
+}
+.footer-social {
+  color: #000000; /* Light mode */
+}
+
+.dark .footer-social {
+  color: #d4d4d8; /* Dark mode */
 }
 
 .footer-social:hover {
@@ -67,7 +70,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.35;
+  opacity: 0.15;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
 }
 
@@ -173,6 +176,21 @@ body::before {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Hero image hover (moved from invalid inline style) */
+.hero-pic {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-pic:hover {
+  box-shadow: 0 0 20px rgba(13, 148, 136, 0.5);
+  transform: translateY(-2px);
 }
 
 /* card hover */
@@ -318,45 +336,14 @@ body::before {
 =========================== */
 
 @media (max-width: 900px) {
-  .card-container {
-    width: 300px;
-    height: 520px;
-    user-select: none;
-    touch-action: pan-y;
-  }
-
-  .skill-card.prev {
-    transform: translateX(-45px) rotate(-8deg) scale(0.9);
-  }
-
-  .skill-card.next {
-    transform: translateX(45px) rotate(8deg) scale(0.9);
-  }
-
-  .left-arrow {
-    left: 10px;
-  }
-
-  .right-arrow {
-    right: 10px;
-  }
+  /* carousel styles removed */
 }
 
 @media (max-width: 640px) {
-  .card-container {
-    width: 92vw;
-    max-width: 300px;
-    min-height: 600px;
-  }
-
   .skill-title {
     font-size: 1.7rem;
   }
-
-  .nav-arrow {
-    width: 55px;
-    height: 55px;
-  }
+  /* carousel styles removed */
 }
 
 @keyframes float {
@@ -368,4 +355,33 @@ body::before {
   50% {
     transform: translateY(-12px);
   }
+}
+html,
+body,
+section,
+header,
+article,
+div,
+nav,
+footer,
+button,
+a {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+::selection {
+  background: #14b8a6;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
