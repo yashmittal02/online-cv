@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://yashmittal02.github.io/online-cv/sitemap.xml
+Sitemap: https://heyyash.me/sitemap.xml

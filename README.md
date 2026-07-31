@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my professional journey, technical skills, projects, internships, certifications, and extracurricular achievements.
 
-## [Live Preview](https://yashmittal02.github.io/online-cv/)
+## [Live Preview](https://heyyash.me/)
 
 ## About
 
@@ -10,35 +10,35 @@ This portfolio serves as my online CV and professional profile. It highlights my
 
 ## Features
 
-* Fully Responsive Design
-* Modern Dark-Themed UI
-* Interactive Technology Radar
-* Project Showcase
-* Professional Experience Timeline
-* Education Section
-* Certifications Gallery
-* Extra-Curricular Activities
-* Soft Skills Showcase
-* Contact Information
-* Mobile-Friendly Navigation
-* Smooth Animations and Transitions
+- Fully Responsive Design
+- Modern Dark-Themed UI
+- Interactive Technology Radar
+- Project Showcase
+- Professional Experience Timeline
+- Education Section
+- Certifications Gallery
+- Extra-Curricular Activities
+- Soft Skills Showcase
+- Contact Information
+- Mobile-Friendly Navigation
+- Smooth Animations and Transitions
 
 ## Tech Stack
 
 ### Frontend
 
-* HTML5
-* CSS3
-* JavaScript
-* Tailwind CSS
-* Alpine.js
+- HTML5
+- CSS3
+- JavaScript
+- Tailwind CSS
+- Alpine.js
 
 ### Tools & Technologies
 
-* Git
-* GitHub
-* Responsive Web Design
-* UI/UX Design Principles
+- Git
+- GitHub
+- Responsive Web Design
+- UI/UX Design Principles
 
 ## Featured Projects
 
@@ -48,23 +48,23 @@ A full-stack web application that helps users discover nearby local shops and re
 
 **Key Features**
 
-* Shop discovery
-* Product browsing
-* Cart management
-* Order tracking
-* User authentication
-* Customer feedback system
-* SEO optimization
+- Shop discovery
+- Product browsing
+- Cart management
+- Order tracking
+- User authentication
+- Customer feedback system
+- SEO optimization
 
 **Technologies**
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* Spring Boot
-* JPA/Hibernate
-* H2 Database
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Spring Boot
+- JPA/Hibernate
+- H2 Database
 
 ---
 
@@ -74,10 +74,10 @@ An educational platform designed to improve learning through structured content 
 
 **Highlights**
 
-* Responsive design
-* Modern UI/UX
-* Student-focused learning experience
-* Optimized content organization
+- Responsive design
+- Modern UI/UX
+- Student-focused learning experience
+- Optimized content organization
 
 ---
 
@@ -87,10 +87,10 @@ Designed and developed a professional website for a legal services organization.
 
 **Highlights**
 
-* Professional business website
-* Appointment management support
-* Responsive design
-* Client-focused development
+- Professional business website
+- Appointment management support
+- Responsive design
+- Client-focused development
 
 ## Experience
 
@@ -136,15 +136,15 @@ CBSE Board
 
 ## Technical Skills
 
-* Java
-* Python
-* C/C++
-* MySQL
-* React
-* Data Analytics
-* Backend Development
-* Database Management
-* Git & GitHub
+- Java
+- Python
+- C/C++
+- MySQL
+- React
+- Data Analytics
+- Backend Development
+- Database Management
+- Git & GitHub
 
 ## Certifications
 
@@ -176,13 +176,13 @@ Hosted multiple university-level cultural and academic events.
 
 ## Soft Skills
 
-* Leadership
-* Public Speaking
-* Communication
-* Team Management
-* Problem Solving
-* Adaptability
-* Time Management
+- Leadership
+- Public Speaking
+- Communication
+- Team Management
+- Problem Solving
+- Adaptability
+- Time Management
 
 ## Contact
 
@@ -194,9 +194,9 @@ Hosted multiple university-level cultural and academic events.
 
 ### Connect With Me
 
-* LinkedIn: https://www.linkedin.com/in/yash-mittal-550462279/
-* GitHub: https://github.com/yashmittal02
-* HackerRank: https://www.hackerrank.com/profile/yashmittal02
+- LinkedIn: https://www.linkedin.com/in/yash-mittal-550462279/
+- GitHub: https://github.com/yashmittal02
+- HackerRank: https://www.hackerrank.com/profile/yashmittal02
 
 ## License
 
